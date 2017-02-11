@@ -1,2 +1,2 @@
-# OBS_Settings_Manager
-Backup your OBS Studio profiles and manage them
+# OBS Settings Manager
+"OBS Settings Manager" lets you backup your OBS Studio profiles and manage them in an easy, user friendly way.

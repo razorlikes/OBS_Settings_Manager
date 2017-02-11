@@ -8,8 +8,6 @@ namespace OBS_Settings_Manager
 {
     public partial class BackupCreationForm : Form
     {
-        string encoder, backupDest;
-
         public BackupCreationForm()
         {
             InitializeComponent();
@@ -20,7 +18,7 @@ namespace OBS_Settings_Manager
             FileIniDataParser parser = new FileIniDataParser();
             IniData basicSettings = parser.ReadFile(Path.Combine(MainForm.selectedProfilePath, "basic.ini"));
 
-            encoder = basicSettings["AdvOut"]["Encoder"];
+            string encoder = basicSettings["AdvOut"]["Encoder"];
             int index = cmbEncoder.FindString(encoder);
             cmbEncoder.SelectedIndex = index;
 
@@ -35,7 +33,7 @@ namespace OBS_Settings_Manager
             meta.name = tbxName.Text;
             meta.notes = tbxNotes.Text;
 
-            backupDest = Path.Combine(MainForm.selectedProfileBackupPath, meta.name);
+            string backupDest = Path.Combine(MainForm.selectedProfileBackupPath, meta.name);
 
             if (!Directory.Exists(backupDest))
             {
@@ -70,6 +68,11 @@ namespace OBS_Settings_Manager
             {
                 copyDir(Path.Combine(sourcePath, dir.Name), Path.Combine(destPath, dir.Name));
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

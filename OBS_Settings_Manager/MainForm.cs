@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
-namespace OBS_Settings_Manager  //TODO: backup folders, archive, settings
+namespace OBS_Settings_Manager
 {
     public partial class MainForm : Form
     {
@@ -19,7 +19,7 @@ namespace OBS_Settings_Manager  //TODO: backup folders, archive, settings
             mainPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "obs-studio", "SettingsManager");
         }
 
-        private void MainForm_Shown(object sender, EventArgs e)  //TODO
+        private void MainForm_Shown(object sender, EventArgs e)
         {
             string[] profilePaths, backupProfilePaths;
 
@@ -84,7 +84,7 @@ namespace OBS_Settings_Manager  //TODO: backup folders, archive, settings
             BuildBackupList(selectedProfileBackupPath);
         }
 
-        void BuildBackupList(string path)  //TODO: read out meta data for each folder in the list
+        void BuildBackupList(string path)
         {
             string[] backupPaths = Directory.GetDirectories(path);
             string[] backupNames = new string[backupPaths.Length];
@@ -152,7 +152,7 @@ namespace OBS_Settings_Manager  //TODO: backup folders, archive, settings
             backupForm.Show();
         }
 
-        void backupForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void backupForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             BuildBackupList(selectedProfileBackupPath);
         }

@@ -35,6 +35,7 @@
             this.btnSaveBackup = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEncoder = new System.Windows.Forms.ComboBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -73,11 +74,11 @@
             // 
             // btnSaveBackup
             // 
-            this.btnSaveBackup.Location = new System.Drawing.Point(317, 138);
+            this.btnSaveBackup.Location = new System.Drawing.Point(230, 138);
             this.btnSaveBackup.Name = "btnSaveBackup";
             this.btnSaveBackup.Size = new System.Drawing.Size(81, 23);
             this.btnSaveBackup.TabIndex = 5;
-            this.btnSaveBackup.Text = "Save Backup";
+            this.btnSaveBackup.Text = "Save backup";
             this.btnSaveBackup.UseVisualStyleBackColor = true;
             this.btnSaveBackup.Click += new System.EventHandler(this.btnSaveBackup_Click);
             // 
@@ -101,11 +102,22 @@
             this.cmbEncoder.Size = new System.Drawing.Size(121, 21);
             this.cmbEncoder.TabIndex = 7;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(317, 138);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(81, 23);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // BackupCreationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 171);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cmbEncoder);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSaveBackup);
@@ -114,7 +126,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BackupCreationForm";
-            this.Text = "BackupCreationForm";
+            this.Text = "Create New Backup";
             this.Shown += new System.EventHandler(this.BackupCreationForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,5 +142,6 @@
         private System.Windows.Forms.Button btnSaveBackup;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbEncoder;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

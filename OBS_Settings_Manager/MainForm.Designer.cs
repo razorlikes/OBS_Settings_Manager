@@ -52,7 +52,7 @@
             // 
             this.cmbProfiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProfiles.FormattingEnabled = true;
-            this.cmbProfiles.Location = new System.Drawing.Point(15, 25);
+            this.cmbProfiles.Location = new System.Drawing.Point(13, 25);
             this.cmbProfiles.Name = "cmbProfiles";
             this.cmbProfiles.Size = new System.Drawing.Size(121, 21);
             this.cmbProfiles.TabIndex = 0;
@@ -61,11 +61,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(10, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Choose your profile";
+            this.label1.Text = "Choose your profile:";
             // 
             // lsvBackups
             // 
@@ -74,7 +74,7 @@
             this.colDate,
             this.colEncoder});
             this.lsvBackups.FullRowSelect = true;
-            this.lsvBackups.Location = new System.Drawing.Point(15, 53);
+            this.lsvBackups.Location = new System.Drawing.Point(13, 53);
             this.lsvBackups.MultiSelect = false;
             this.lsvBackups.Name = "lsvBackups";
             this.lsvBackups.Size = new System.Drawing.Size(559, 331);
@@ -101,7 +101,7 @@
             // btnOpenDetails
             // 
             this.btnOpenDetails.Enabled = false;
-            this.btnOpenDetails.Location = new System.Drawing.Point(458, 34);
+            this.btnOpenDetails.Location = new System.Drawing.Point(456, 13);
             this.btnOpenDetails.Name = "btnOpenDetails";
             this.btnOpenDetails.Size = new System.Drawing.Size(95, 23);
             this.btnOpenDetails.TabIndex = 6;
@@ -112,7 +112,7 @@
             // btnCreateBackup
             // 
             this.btnCreateBackup.AutoSize = true;
-            this.btnCreateBackup.Location = new System.Drawing.Point(142, 24);
+            this.btnCreateBackup.Location = new System.Drawing.Point(140, 24);
             this.btnCreateBackup.Name = "btnCreateBackup";
             this.btnCreateBackup.Size = new System.Drawing.Size(110, 23);
             this.btnCreateBackup.TabIndex = 7;
@@ -123,7 +123,7 @@
             // btnRestoreBackup
             // 
             this.btnRestoreBackup.Enabled = false;
-            this.btnRestoreBackup.Location = new System.Drawing.Point(458, 63);
+            this.btnRestoreBackup.Location = new System.Drawing.Point(456, 42);
             this.btnRestoreBackup.Name = "btnRestoreBackup";
             this.btnRestoreBackup.Size = new System.Drawing.Size(95, 23);
             this.btnRestoreBackup.TabIndex = 8;
@@ -142,16 +142,16 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnOpenDetails);
             this.groupBox1.Controls.Add(this.btnRestoreBackup);
-            this.groupBox1.Location = new System.Drawing.Point(15, 390);
+            this.groupBox1.Location = new System.Drawing.Point(13, 390);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(559, 121);
+            this.groupBox1.Size = new System.Drawing.Size(559, 130);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Backup Info";
+            this.groupBox1.Text = "Backup info";
             // 
             // lblNotes
             // 
-            this.lblNotes.Location = new System.Drawing.Point(45, 46);
+            this.lblNotes.Location = new System.Drawing.Point(43, 47);
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.Size = new System.Drawing.Size(407, 69);
             this.lblNotes.TabIndex = 15;
@@ -159,7 +159,7 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(45, 31);
+            this.lblDate.Location = new System.Drawing.Point(43, 31);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(16, 13);
             this.lblDate.TabIndex = 14;
@@ -168,7 +168,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(45, 16);
+            this.lblName.Location = new System.Drawing.Point(43, 16);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(16, 13);
             this.lblName.TabIndex = 13;
@@ -177,7 +177,7 @@
             // btnDeleteBackup
             // 
             this.btnDeleteBackup.Enabled = false;
-            this.btnDeleteBackup.Location = new System.Drawing.Point(458, 92);
+            this.btnDeleteBackup.Location = new System.Drawing.Point(456, 71);
             this.btnDeleteBackup.Name = "btnDeleteBackup";
             this.btnDeleteBackup.Size = new System.Drawing.Size(95, 23);
             this.btnDeleteBackup.TabIndex = 12;
@@ -188,7 +188,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 46);
+            this.label4.Location = new System.Drawing.Point(4, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 11;
@@ -197,7 +197,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 31);
+            this.label3.Location = new System.Drawing.Point(4, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 10;
@@ -206,7 +206,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Location = new System.Drawing.Point(4, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 9;
@@ -216,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 522);
+            this.ClientSize = new System.Drawing.Size(586, 532);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCreateBackup);
             this.Controls.Add(this.lsvBackups);
