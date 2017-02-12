@@ -23,7 +23,7 @@ namespace OBS_Settings_Manager
         {
             string[] profilePaths, backupProfilePaths;
 
-            if (!Directory.Exists(mainPath))
+            if (!Directory.Exists(backupPath))
             {
                 DialogResult diagres = MessageBox.Show("Since this seems to be your first run of this program it will now create all needed files. Those files are located under " + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\obs-studio.\n\n" +
                                                        "None of your initial config files will be altered during this process.\n" +
