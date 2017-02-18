@@ -96,7 +96,9 @@
             this.cmbEncoder.FormattingEnabled = true;
             this.cmbEncoder.Items.AddRange(new object[] {
             "obs_x264",
-            "amd_amf_h264"});
+            "amd_amf_h264",
+            "ffmpeg_nvenc",
+            "obs_qsv11"});
             this.cmbEncoder.Location = new System.Drawing.Point(65, 32);
             this.cmbEncoder.Name = "cmbEncoder";
             this.cmbEncoder.Size = new System.Drawing.Size(121, 21);
@@ -125,6 +127,7 @@
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "BackupCreationForm";
             this.Text = "Create New Backup";
             this.Shown += new System.EventHandler(this.BackupCreationForm_Shown);

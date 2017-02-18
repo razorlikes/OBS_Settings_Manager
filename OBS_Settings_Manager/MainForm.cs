@@ -212,6 +212,14 @@ namespace OBS_Settings_Manager
             {
                 Directory.Delete(selectedBackupPath, true);
                 BuildBackupList(selectedProfileBackupPath);
+
+                btnDeleteBackup.Enabled = false;
+                btnOpenDetails.Enabled = false;
+                btnRestoreBackup.Enabled = false;
+
+                lblName.Text = "";
+                lblDate.Text = "";
+                lblNotes.Text = "";
             }
         }
     }
