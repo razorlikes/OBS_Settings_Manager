@@ -12,6 +12,7 @@ namespace OBS_Settings_Manager
         public string name { get; set; }
         public string notes { get; set; }
         public string encoder { get; set; }
+        public string videopath { get; set; }
 
         public bool SaveData(string path)
         {

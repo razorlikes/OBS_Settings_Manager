@@ -162,6 +162,12 @@ namespace OBS_Settings_Manager
             new DetailForm().Show();
         }
 
+        private void btnOpenVideo_Click(object sender, EventArgs e)
+        {
+            MetaData meta = new MetaData().LoadData(selectedBackupPath);
+            Process.Start(meta.videopath);
+        }
+
         private void lsvBackups_SelectedIndexChanged(object sender, EventArgs e)
         {
             string itemName = "";
@@ -181,12 +187,16 @@ namespace OBS_Settings_Manager
                 lblName.Text = meta.name;
                 lblDate.Text = meta.date.ToString();
                 lblNotes.Text = meta.notes;
+
+                if (meta.videopath != null)
+                    btnOpenVideo.Enabled = true;
             }
             else
             {
                 btnDeleteBackup.Enabled = false;
                 btnOpenDetails.Enabled = false;
                 btnRestoreBackup.Enabled = false;
+                btnOpenVideo.Enabled = false;
 
                 lblName.Text = "";
                 lblDate.Text = "";

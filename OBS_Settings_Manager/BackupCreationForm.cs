@@ -32,6 +32,7 @@ namespace OBS_Settings_Manager
             meta.encoder = cmbEncoder.Text;
             meta.name = tbxName.Text;
             meta.notes = tbxNotes.Text;
+            meta.videopath = tbxVideoPath.Text;
 
             string backupDest = Path.Combine(MainForm.selectedProfileBackupPath, meta.name);
 
@@ -73,6 +74,16 @@ namespace OBS_Settings_Manager
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAddVideo_Click(object sender, EventArgs e)
+        {
+            ofd_Video.ShowDialog();
+        }
+
+        private void ofd_Video_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            tbxVideoPath.Text = ofd_Video.FileName;
         }
     }
 }

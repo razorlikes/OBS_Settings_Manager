@@ -45,6 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnOpenVideo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +124,7 @@
             // btnRestoreBackup
             // 
             this.btnRestoreBackup.Enabled = false;
-            this.btnRestoreBackup.Location = new System.Drawing.Point(456, 42);
+            this.btnRestoreBackup.Location = new System.Drawing.Point(456, 71);
             this.btnRestoreBackup.Name = "btnRestoreBackup";
             this.btnRestoreBackup.Size = new System.Drawing.Size(95, 23);
             this.btnRestoreBackup.TabIndex = 8;
@@ -133,6 +134,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnOpenVideo);
             this.groupBox1.Controls.Add(this.lblNotes);
             this.groupBox1.Controls.Add(this.lblDate);
             this.groupBox1.Controls.Add(this.lblName);
@@ -177,7 +179,7 @@
             // btnDeleteBackup
             // 
             this.btnDeleteBackup.Enabled = false;
-            this.btnDeleteBackup.Location = new System.Drawing.Point(456, 71);
+            this.btnDeleteBackup.Location = new System.Drawing.Point(456, 100);
             this.btnDeleteBackup.Name = "btnDeleteBackup";
             this.btnDeleteBackup.Size = new System.Drawing.Size(95, 23);
             this.btnDeleteBackup.TabIndex = 12;
@@ -211,6 +213,17 @@
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Name:";
+            // 
+            // btnOpenVideo
+            // 
+            this.btnOpenVideo.Enabled = false;
+            this.btnOpenVideo.Location = new System.Drawing.Point(456, 42);
+            this.btnOpenVideo.Name = "btnOpenVideo";
+            this.btnOpenVideo.Size = new System.Drawing.Size(95, 23);
+            this.btnOpenVideo.TabIndex = 16;
+            this.btnOpenVideo.Text = "Open video";
+            this.btnOpenVideo.UseVisualStyleBackColor = true;
+            this.btnOpenVideo.Click += new System.EventHandler(this.btnOpenVideo_Click);
             // 
             // MainForm
             // 
@@ -252,6 +265,7 @@
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnOpenVideo;
     }
 }
 
