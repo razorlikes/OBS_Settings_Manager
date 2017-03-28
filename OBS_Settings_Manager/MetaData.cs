@@ -48,6 +48,7 @@ namespace OBS_Settings_Manager
             {
                 Debug.Print("ERROR: Deserialization failed: " + exc.ToString());
                 fs.Close();
+                return data;
             }
 
             fs.Close();

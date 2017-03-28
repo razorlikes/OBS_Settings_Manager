@@ -127,7 +127,7 @@ namespace OBS_Settings_Manager
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            readSettings(MainForm.selectedProfilePath);
+            readSettings(Path.Combine(MainForm.selectedBackupPath, "profileData"));
         }
     }
 }

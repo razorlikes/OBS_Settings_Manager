@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using System.IO.Compression;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace OBS_Settings_Manager
 {
@@ -87,29 +89,22 @@ namespace OBS_Settings_Manager
         void BuildBackupList(string path)
         {
             string[] backupPaths = Directory.GetDirectories(path);
-            string[] backupNames = new string[backupPaths.Length];
-
-            int i = 0;
-            foreach (string backup in backupPaths)
-            {
-                backupNames[i] = Path.GetFileName(backup);
-                i++;
-            }
-
-            if (backupNames == null)
-                return;
 
             lsvBackups.Items.Clear();
             lsvBackups.Groups.Clear();
-            foreach (string name in backupNames)
+            foreach (string backup in backupPaths)
             {
-                MetaData meta = new MetaData().LoadData(Path.Combine(path, name));
+                MetaData meta = new MetaData().LoadData(Path.Combine(path, Path.GetFileName(backup)));
                 ListViewItem lvi = lsvBackups.Items.Add(meta.name);
                 lvi.SubItems.Add(meta.date.ToString());
                 lvi.SubItems.Add(meta.encoder);
+                if (meta.videopath != null)
+                    lvi.SubItems.Add("Yes");
+                else
+                    lvi.SubItems.Add("No");
                 lvi.Tag = meta.date.ToFileTime();
-
             }
+
             lsvBackups.Sort();
         }
 
@@ -168,20 +163,46 @@ namespace OBS_Settings_Manager
             Process.Start(meta.videopath);
         }
 
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            if (ofdImport.ShowDialog() == DialogResult.OK)
+            {
+                ZipArchive archive = ZipFile.OpenRead(sfdExport.FileName);
+                ZipArchiveEntry entry = archive.GetEntry("metaINF.dat");
+                BinaryFormatter formatter = new BinaryFormatter();
+                MetaData data = new MetaData();
+                data = (MetaData)formatter.Deserialize(entry.Open());
+
+                ZipFile.ExtractToDirectory(ofdImport.FileName, Path.Combine(selectedProfileBackupPath, data.name));    //TODO  import/export exceptions
+                BuildBackupList(selectedProfileBackupPath);
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            sfdExport.FileName = Path.GetFileName(selectedBackupPath) + ".zip";
+            if (sfdExport.ShowDialog() == DialogResult.OK)
+            {
+                ZipFile.CreateFromDirectory(selectedBackupPath, sfdExport.FileName);
+            }
+        }
+
         private void lsvBackups_SelectedIndexChanged(object sender, EventArgs e)
         {
             string itemName = "";
             foreach (ListViewItem lvi in lsvBackups.SelectedItems)
                 itemName = lvi.Text;
 
-            selectedBackupPath = Path.Combine(selectedProfileBackupPath, itemName);
-            Debug.Print("DEBUG: selectedBackupPath: " + selectedBackupPath);
-
             if (itemName != "")
             {
+                selectedBackupPath = Path.Combine(selectedProfileBackupPath, itemName);
+                Debug.Print("DEBUG: selectedBackupPath: " + selectedBackupPath);
+                Debug.Print("DEBUG: lsv index change: " + itemName);
+
                 btnDeleteBackup.Enabled = true;
                 btnOpenDetails.Enabled = true;
                 btnRestoreBackup.Enabled = true;
+                btnExport.Enabled = true;
 
                 MetaData meta = new MetaData().LoadData(selectedBackupPath);
                 lblName.Text = meta.name;
@@ -197,13 +218,12 @@ namespace OBS_Settings_Manager
                 btnOpenDetails.Enabled = false;
                 btnRestoreBackup.Enabled = false;
                 btnOpenVideo.Enabled = false;
+                btnExport.Enabled = false;
 
                 lblName.Text = "";
                 lblDate.Text = "";
                 lblNotes.Text = "";
             }
-
-            Debug.Print("DEBUG: lsv index change: " + itemName);
         }
 
         private void btnRestoreBackup_Click(object sender, EventArgs e)
@@ -226,6 +246,7 @@ namespace OBS_Settings_Manager
                 btnDeleteBackup.Enabled = false;
                 btnOpenDetails.Enabled = false;
                 btnRestoreBackup.Enabled = false;
+                btnOpenVideo.Enabled = false;
 
                 lblName.Text = "";
                 lblDate.Text = "";

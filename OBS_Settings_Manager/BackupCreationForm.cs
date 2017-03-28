@@ -18,8 +18,7 @@ namespace OBS_Settings_Manager
             FileIniDataParser parser = new FileIniDataParser();
             IniData basicSettings = parser.ReadFile(Path.Combine(MainForm.selectedProfilePath, "basic.ini"));
 
-            string encoder = basicSettings["AdvOut"]["Encoder"];
-            int index = cmbEncoder.FindString(encoder);
+            int index = cmbEncoder.FindString(basicSettings["AdvOut"]["Encoder"]);
             cmbEncoder.SelectedIndex = index;
 
             tbxName.Text = Path.GetFileName(MainForm.selectedProfilePath);
