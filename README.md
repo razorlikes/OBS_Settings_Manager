@@ -10,10 +10,10 @@ __Right now you can:__
 * See detailed settings of your backups
 
 __In the future you will be able to:__
-* Export/Import backups and share them with others
-* Compare backups to your current settings
-* Link recorded videos to your backups
-* ...and more!
+- [x] Export/Import backups and share them with others
+- [ ] Compare backups to your current settings (Might take a while...)
+- [x] Link recorded videos to your backups
+...and more!
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your own computer.
@@ -21,7 +21,7 @@ These instructions will get you a copy of the project up and running on your own
 ### Prerequisites
 To use my project you only need:
 * A computer with at least Windows Vista
-* [Microsoft .NET Framework 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=17718)
+* [Microsoft .NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
 * [Open Broadcaster Software Studio](https://github.com/jp9000/obs-studio) (duh)
 
 
