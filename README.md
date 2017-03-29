@@ -13,6 +13,7 @@ __In the future you will be able to:__
 - [x] Export/Import backups and share them with others
 - [ ] Compare backups to your current settings (Might take a while...)
 - [x] Link recorded videos to your backups
+
 ...and more!
 
 ## Getting Started
