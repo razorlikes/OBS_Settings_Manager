@@ -101,6 +101,7 @@
             this.cmbEncoder.Items.AddRange(new object[] {
             "obs_x264",
             "amd_amf_h264",
+            "amd_amf_h265",
             "ffmpeg_nvenc",
             "obs_qsv11"});
             this.cmbEncoder.Location = new System.Drawing.Point(69, 38);

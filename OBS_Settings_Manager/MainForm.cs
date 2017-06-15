@@ -98,7 +98,7 @@ namespace OBS_Settings_Manager
                 ListViewItem lvi = lsvBackups.Items.Add(meta.name);
                 lvi.SubItems.Add(meta.date.ToString());
                 lvi.SubItems.Add(meta.encoder);
-                if (meta.videopath != null)
+                if (meta.videopath != "")
                     lvi.SubItems.Add("Yes");
                 else
                     lvi.SubItems.Add("No");
@@ -209,7 +209,7 @@ namespace OBS_Settings_Manager
                 lblDate.Text = meta.date.ToString();
                 lblNotes.Text = meta.notes;
 
-                if (meta.videopath != null)
+                if (meta.videopath != "" && meta.videopath != null)
                     btnOpenVideo.Enabled = true;
             }
             else
@@ -247,6 +247,7 @@ namespace OBS_Settings_Manager
                 btnOpenDetails.Enabled = false;
                 btnRestoreBackup.Enabled = false;
                 btnOpenVideo.Enabled = false;
+                btnExport.Enabled = false;
 
                 lblName.Text = "";
                 lblDate.Text = "";
