@@ -105,7 +105,7 @@ namespace OBS_Settings_Manager
                 lvi.Tag = meta.date.ToFileTime();
             }
 
-            lsvBackups.Sort();
+            this.lsvBackups.ListViewItemSorter = new ListViewItemComparer();
         }
 
         private void copyDir(string sourcePath, string destPath)

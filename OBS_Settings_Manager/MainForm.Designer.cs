@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("test");
             this.cmbProfiles = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lsvBackups = new System.Windows.Forms.ListView();
@@ -75,12 +76,18 @@
             // 
             // lsvBackups
             // 
+            this.lsvBackups.AllowColumnReorder = true;
+            this.lsvBackups.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lsvBackups.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
             this.colDate,
             this.colEncoder,
             this.colVideo});
             this.lsvBackups.FullRowSelect = true;
+            this.lsvBackups.HideSelection = false;
+            listViewItem1.IndentCount = 200;
+            this.lsvBackups.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
             this.lsvBackups.Location = new System.Drawing.Point(13, 53);
             this.lsvBackups.MultiSelect = false;
             this.lsvBackups.Name = "lsvBackups";
