@@ -19,6 +19,8 @@ namespace OBS_Settings_Manager
             
             backupPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "obs-studio", "SettingsManager", "backups");
             mainPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "obs-studio", "SettingsManager");
+
+            lsvBackups.ListViewItemSorter = new ListViewItemComparer();
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -89,13 +91,16 @@ namespace OBS_Settings_Manager
         void BuildBackupList(string path)
         {
             string[] backupPaths = Directory.GetDirectories(path);
-
+ 
             lsvBackups.Items.Clear();
             lsvBackups.Groups.Clear();
+            ListViewItem[] lviList = new ListViewItem[backupPaths.Length];
+            int i = 0;
             foreach (string backup in backupPaths)
             {
                 MetaData meta = new MetaData().LoadData(Path.Combine(path, Path.GetFileName(backup)));
-                ListViewItem lvi = lsvBackups.Items.Add(meta.name);
+                ListViewItem lvi = new ListViewItem(meta.name);
+
                 lvi.SubItems.Add(meta.date.ToString());
                 lvi.SubItems.Add(meta.encoder);
                 if (meta.videopath != "")
@@ -103,9 +108,12 @@ namespace OBS_Settings_Manager
                 else
                     lvi.SubItems.Add("No");
                 lvi.Tag = meta.date.ToFileTime();
-            }
 
-            this.lsvBackups.ListViewItemSorter = new ListViewItemComparer();
+                lviList[i] = lvi;
+                i++;
+            }
+            lsvBackups.Items.AddRange(lviList);
+             
         }
 
         private void copyDir(string sourcePath, string destPath)
@@ -167,13 +175,33 @@ namespace OBS_Settings_Manager
         {
             if (ofdImport.ShowDialog() == DialogResult.OK)
             {
-                ZipArchive archive = ZipFile.OpenRead(sfdExport.FileName);
+                ZipArchive archive = ZipFile.OpenRead(ofdImport.FileName);
                 ZipArchiveEntry entry = archive.GetEntry("metaINF.dat");
                 BinaryFormatter formatter = new BinaryFormatter();
                 MetaData data = new MetaData();
                 data = (MetaData)formatter.Deserialize(entry.Open());
 
-                ZipFile.ExtractToDirectory(ofdImport.FileName, Path.Combine(selectedProfileBackupPath, data.name));    //TODO  import/export exceptions
+                try
+                {
+                    ZipFile.ExtractToDirectory(ofdImport.FileName, Path.Combine(selectedProfileBackupPath, data.name));    //TODO  import/export exceptions
+                }
+                catch (IOException IOexc)
+                {
+                    DialogResult diagres = MessageBox.Show(this, "It seems that a backup with the same name already exists.\nOverwrite it?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (diagres == DialogResult.Yes)
+                    {
+                        Directory.Delete(Path.Combine(selectedProfileBackupPath, data.name), true);
+                        Directory.CreateDirectory(Path.Combine(selectedProfileBackupPath, data.name));
+                        ZipFile.ExtractToDirectory(ofdImport.FileName, Path.Combine(selectedProfileBackupPath, data.name));
+                    }
+                        
+
+                }
+                catch (Exception exc)
+                {
+
+                }
                 BuildBackupList(selectedProfileBackupPath);
             }
         }

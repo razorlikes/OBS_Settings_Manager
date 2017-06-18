@@ -266,7 +266,6 @@
             // 
             // ofdImport
             // 
-            this.ofdImport.FileName = "openFileDialog1";
             this.ofdImport.Filter = "ZIP files|*.zip|All files|*.*";
             // 
             // sfdExport
