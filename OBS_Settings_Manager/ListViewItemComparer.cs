@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
+using System.Diagnostics;
 
 namespace OBS_Settings_Manager
 {
@@ -13,7 +14,7 @@ namespace OBS_Settings_Manager
     {
         public int Compare(object x, object y)
         {
-            return String.Compare(((ListViewItem)y).Tag.ToString(), ((ListViewItem)x).Tag.ToString());
+            return String.Compare(((ListViewItem)y).SubItems[1].ToString(), ((ListViewItem)x).SubItems[1].ToString());
         }
     }
 }

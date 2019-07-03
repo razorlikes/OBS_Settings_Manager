@@ -110,7 +110,7 @@ namespace OBS_Settings_Manager
                     lvi.SubItems.Add("Yes");
                 else
                     lvi.SubItems.Add("No");
-                lvi.Tag = meta.date.ToFileTime();
+                lvi.Tag = backup;
 
                 lviList[i] = lvi;
                 i++;
@@ -235,7 +235,7 @@ namespace OBS_Settings_Manager
 
             if (itemName != "")
             {
-                selectedBackupPath = Path.Combine(selectedProfileBackupPath, itemName);
+                selectedBackupPath = lsvBackups.SelectedItems[0].Tag.ToString();
                 Debug.Print("DEBUG: selectedBackupPath: " + selectedBackupPath);
                 Debug.Print("DEBUG: lsv index change: " + itemName);
 

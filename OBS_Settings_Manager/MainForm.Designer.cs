@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("test");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("test");
             this.cmbProfiles = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lsvBackups = new System.Windows.Forms.ListView();
@@ -40,6 +40,7 @@
             this.btnCreateBackup = new System.Windows.Forms.Button();
             this.btnRestoreBackup = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbxNotes = new System.Windows.Forms.RichTextBox();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnOpenVideo = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.ofdImport = new System.Windows.Forms.OpenFileDialog();
             this.sfdExport = new System.Windows.Forms.SaveFileDialog();
-            this.tbxNotes = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,9 +85,9 @@
             this.colVideo});
             this.lsvBackups.FullRowSelect = true;
             this.lsvBackups.HideSelection = false;
-            listViewItem3.IndentCount = 200;
+            listViewItem1.IndentCount = 200;
             this.lsvBackups.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.lsvBackups.Location = new System.Drawing.Point(13, 53);
             this.lsvBackups.MultiSelect = false;
             this.lsvBackups.Name = "lsvBackups";
@@ -100,7 +100,7 @@
             // colName
             // 
             this.colName.Text = "Name";
-            this.colName.Width = 202;
+            this.colName.Width = 208;
             // 
             // colDate
             // 
@@ -169,6 +169,16 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Backup info";
+            // 
+            // tbxNotes
+            // 
+            this.tbxNotes.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbxNotes.Location = new System.Drawing.Point(46, 46);
+            this.tbxNotes.Name = "tbxNotes";
+            this.tbxNotes.Size = new System.Drawing.Size(404, 106);
+            this.tbxNotes.TabIndex = 19;
+            this.tbxNotes.Text = "";
             // 
             // btnExport
             // 
@@ -265,16 +275,6 @@
             // sfdExport
             // 
             this.sfdExport.Filter = "ZIP files|*.zip|All files|*.*";
-            // 
-            // tbxNotes
-            // 
-            this.tbxNotes.BackColor = System.Drawing.SystemColors.Menu;
-            this.tbxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbxNotes.Location = new System.Drawing.Point(46, 46);
-            this.tbxNotes.Name = "tbxNotes";
-            this.tbxNotes.Size = new System.Drawing.Size(404, 106);
-            this.tbxNotes.TabIndex = 19;
-            this.tbxNotes.Text = "";
             // 
             // MainForm
             // 

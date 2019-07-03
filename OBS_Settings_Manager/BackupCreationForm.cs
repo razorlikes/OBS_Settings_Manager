@@ -28,9 +28,14 @@ namespace OBS_Settings_Manager
 
             FileIniDataParser parser = new FileIniDataParser();
             IniData basicSettings = parser.ReadFile(Path.Combine(MainForm.selectedProfilePath, "basic.ini"));
-            meta.encoder = basicSettings["AdvOut"]["Encoder"];
+            if (basicSettings["AdvOut"]["Encoder"] != String.Empty)
+                meta.encoder = basicSettings["AdvOut"]["Encoder"];
+            else
+                meta.encoder = basicSettings["SimpleOutput"]["StreamEncoder"];
 
-            string backupDest = Path.Combine(MainForm.selectedProfileBackupPath, meta.name);
+
+
+            string backupDest = Path.Combine(MainForm.selectedProfileBackupPath, "backup_" + DateTime.Now.ToString("yyyyMMddTHHmmss"));
 
             if (!Directory.Exists(backupDest))
             {
