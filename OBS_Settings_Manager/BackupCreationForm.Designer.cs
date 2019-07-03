@@ -33,8 +33,6 @@
             this.tbxName = new System.Windows.Forms.TextBox();
             this.tbxNotes = new System.Windows.Forms.TextBox();
             this.btnSaveBackup = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbEncoder = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddVideo = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,7 +52,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 65);
+            this.label2.Location = new System.Drawing.Point(32, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
@@ -62,23 +60,23 @@
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(69, 12);
+            this.tbxName.Location = new System.Drawing.Point(76, 12);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(333, 20);
+            this.tbxName.Size = new System.Drawing.Size(273, 20);
             this.tbxName.TabIndex = 3;
             // 
             // tbxNotes
             // 
-            this.tbxNotes.Location = new System.Drawing.Point(69, 65);
+            this.tbxNotes.Location = new System.Drawing.Point(76, 38);
             this.tbxNotes.Multiline = true;
             this.tbxNotes.Name = "tbxNotes";
             this.tbxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbxNotes.Size = new System.Drawing.Size(333, 73);
+            this.tbxNotes.Size = new System.Drawing.Size(273, 73);
             this.tbxNotes.TabIndex = 4;
             // 
             // btnSaveBackup
             // 
-            this.btnSaveBackup.Location = new System.Drawing.Point(234, 179);
+            this.btnSaveBackup.Location = new System.Drawing.Point(181, 145);
             this.btnSaveBackup.Name = "btnSaveBackup";
             this.btnSaveBackup.Size = new System.Drawing.Size(81, 23);
             this.btnSaveBackup.TabIndex = 5;
@@ -86,32 +84,9 @@
             this.btnSaveBackup.UseVisualStyleBackColor = true;
             this.btnSaveBackup.Click += new System.EventHandler(this.btnSaveBackup_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Encoder";
-            // 
-            // cmbEncoder
-            // 
-            this.cmbEncoder.FormattingEnabled = true;
-            this.cmbEncoder.Items.AddRange(new object[] {
-            "obs_x264",
-            "amd_amf_h264",
-            "amd_amf_h265",
-            "ffmpeg_nvenc",
-            "obs_qsv11"});
-            this.cmbEncoder.Location = new System.Drawing.Point(69, 38);
-            this.cmbEncoder.Name = "cmbEncoder";
-            this.cmbEncoder.Size = new System.Drawing.Size(333, 21);
-            this.cmbEncoder.TabIndex = 7;
-            // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(321, 179);
+            this.btnCancel.Location = new System.Drawing.Point(268, 145);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(81, 23);
             this.btnCancel.TabIndex = 8;
@@ -121,7 +96,7 @@
             // 
             // btnAddVideo
             // 
-            this.btnAddVideo.Location = new System.Drawing.Point(321, 144);
+            this.btnAddVideo.Location = new System.Drawing.Point(268, 117);
             this.btnAddVideo.Name = "btnAddVideo";
             this.btnAddVideo.Size = new System.Drawing.Size(81, 22);
             this.btnAddVideo.TabIndex = 9;
@@ -132,7 +107,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 149);
+            this.label4.Location = new System.Drawing.Point(12, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 10;
@@ -140,9 +115,9 @@
             // 
             // tbxVideoPath
             // 
-            this.tbxVideoPath.Location = new System.Drawing.Point(69, 145);
+            this.tbxVideoPath.Location = new System.Drawing.Point(76, 117);
             this.tbxVideoPath.Name = "tbxVideoPath";
-            this.tbxVideoPath.Size = new System.Drawing.Size(246, 20);
+            this.tbxVideoPath.Size = new System.Drawing.Size(186, 20);
             this.tbxVideoPath.TabIndex = 11;
             // 
             // ofd_Video
@@ -154,13 +129,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 213);
+            this.ClientSize = new System.Drawing.Size(361, 180);
             this.Controls.Add(this.tbxVideoPath);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAddVideo);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.cmbEncoder);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSaveBackup);
             this.Controls.Add(this.tbxNotes);
             this.Controls.Add(this.tbxName);
@@ -182,8 +155,6 @@
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.TextBox tbxNotes;
         private System.Windows.Forms.Button btnSaveBackup;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbEncoder;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAddVideo;
         private System.Windows.Forms.Label label4;

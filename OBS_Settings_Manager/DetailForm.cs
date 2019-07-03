@@ -23,10 +23,18 @@ namespace OBS_Settings_Manager
 
         void readSettings(string path)
         {
-            StreamReader readerS = new StreamReader(Path.Combine(path, "streamEncoder.json"));
-            string settingsJsonS = readerS.ReadToEnd();
-            readerS.Close();
-            streamSettings = JsonConvert.DeserializeObject<Hashtable>(settingsJsonS);
+            try
+            {
+                StreamReader readerS = new StreamReader(Path.Combine(path, "streamEncoder.json"));
+                string settingsJsonS = readerS.ReadToEnd();
+                readerS.Close();
+                streamSettings = JsonConvert.DeserializeObject<Hashtable>(settingsJsonS);
+            }
+            catch (FileNotFoundException)
+            {
+                rbtnStreaming.Enabled = false;
+                rbtnStreaming.Checked = false;
+            }
 
             try
             {
@@ -42,6 +50,11 @@ namespace OBS_Settings_Manager
 
             FileIniDataParser parser = new FileIniDataParser();
             basicSettings = parser.ReadFile(Path.Combine(path, "basic.ini"));
+
+            if (!rbtnStreaming.Enabled && !rbtnRecording.Enabled)
+                rbtnBasic.Checked = true;
+            else if (!rbtnStreaming.Enabled && rbtnRecording.Enabled)
+                rbtnRecording.Checked = true;
 
             if (rbtnStreaming.Checked)
                 buildList(streamSettings);

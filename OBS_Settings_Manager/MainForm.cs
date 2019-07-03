@@ -182,7 +182,16 @@ namespace OBS_Settings_Manager
                 ZipArchiveEntry entry = archive.GetEntry("metaINF.dat");
                 BinaryFormatter formatter = new BinaryFormatter();
                 MetaData data = new MetaData();
-                data = (MetaData)formatter.Deserialize(entry.Open());
+
+                try
+                {
+                    data = (MetaData)formatter.Deserialize(entry.Open());
+                }
+                catch (NullReferenceException exc)
+                {
+                    MessageBox.Show(this, "The selected file is not a backup or is corrupt.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
 
                 try
                 {
@@ -238,7 +247,7 @@ namespace OBS_Settings_Manager
                 MetaData meta = new MetaData().LoadData(selectedBackupPath);
                 lblName.Text = meta.name;
                 lblDate.Text = meta.date.ToString();
-                lblNotes.Text = meta.notes;
+                tbxNotes.Text = meta.notes;
 
                 if (meta.videopath != "" && meta.videopath != null)
                     btnOpenVideo.Enabled = true;
@@ -253,7 +262,7 @@ namespace OBS_Settings_Manager
 
                 lblName.Text = "";
                 lblDate.Text = "";
-                lblNotes.Text = "";
+                tbxNotes.Text = "";
             }
         }
 
@@ -282,7 +291,7 @@ namespace OBS_Settings_Manager
 
                 lblName.Text = "";
                 lblDate.Text = "";
-                lblNotes.Text = "";
+                tbxNotes.Text = "";
             }
         }
     }

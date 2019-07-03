@@ -15,11 +15,6 @@ namespace OBS_Settings_Manager
 
         private void BackupCreationForm_Shown(object sender, EventArgs e)
         {
-            FileIniDataParser parser = new FileIniDataParser();
-            IniData basicSettings = parser.ReadFile(Path.Combine(MainForm.selectedProfilePath, "basic.ini"));
-
-            cmbEncoder.SelectedIndex = cmbEncoder.FindString(basicSettings["AdvOut"]["Encoder"]);
-
             tbxName.Text = Path.GetFileName(MainForm.selectedProfilePath);
         }
 
@@ -27,10 +22,13 @@ namespace OBS_Settings_Manager
         {
             MetaData meta = new MetaData();
             meta.date = DateTime.Now;
-            meta.encoder = cmbEncoder.Text;
             meta.name = tbxName.Text;
             meta.notes = tbxNotes.Text;
             meta.videopath = tbxVideoPath.Text;
+
+            FileIniDataParser parser = new FileIniDataParser();
+            IniData basicSettings = parser.ReadFile(Path.Combine(MainForm.selectedProfilePath, "basic.ini"));
+            meta.encoder = basicSettings["AdvOut"]["Encoder"];
 
             string backupDest = Path.Combine(MainForm.selectedProfileBackupPath, meta.name);
 

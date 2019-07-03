@@ -68,9 +68,10 @@
             this.headerValue});
             this.lsvDetails.FullRowSelect = true;
             this.lsvDetails.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lsvDetails.HideSelection = false;
             this.lsvDetails.Location = new System.Drawing.Point(12, 38);
             this.lsvDetails.Name = "lsvDetails";
-            this.lsvDetails.Size = new System.Drawing.Size(559, 457);
+            this.lsvDetails.Size = new System.Drawing.Size(433, 342);
             this.lsvDetails.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lsvDetails.TabIndex = 8;
             this.lsvDetails.UseCompatibleStateImageBehavior = false;
@@ -79,12 +80,12 @@
             // headerSetting
             // 
             this.headerSetting.Text = "Setting";
-            this.headerSetting.Width = 367;
+            this.headerSetting.Width = 205;
             // 
             // headerValue
             // 
             this.headerValue.Text = "Value";
-            this.headerValue.Width = 156;
+            this.headerValue.Width = 205;
             // 
             // rbtnBasic
             // 
@@ -100,7 +101,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(496, 9);
+            this.btnRefresh.Location = new System.Drawing.Point(370, 9);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 12;
@@ -112,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 506);
+            this.ClientSize = new System.Drawing.Size(457, 392);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.rbtnBasic);
             this.Controls.Add(this.rbtnRecording);

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("test");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("test");
             this.cmbProfiles = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lsvBackups = new System.Windows.Forms.ListView();
@@ -42,7 +42,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnOpenVideo = new System.Windows.Forms.Button();
-            this.lblNotes = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnDeleteBackup = new System.Windows.Forms.Button();
@@ -52,6 +51,7 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.ofdImport = new System.Windows.Forms.OpenFileDialog();
             this.sfdExport = new System.Windows.Forms.SaveFileDialog();
+            this.tbxNotes = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,13 +85,13 @@
             this.colVideo});
             this.lsvBackups.FullRowSelect = true;
             this.lsvBackups.HideSelection = false;
-            listViewItem1.IndentCount = 200;
+            listViewItem3.IndentCount = 200;
             this.lsvBackups.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem3});
             this.lsvBackups.Location = new System.Drawing.Point(13, 53);
             this.lsvBackups.MultiSelect = false;
             this.lsvBackups.Name = "lsvBackups";
-            this.lsvBackups.Size = new System.Drawing.Size(559, 331);
+            this.lsvBackups.Size = new System.Drawing.Size(559, 287);
             this.lsvBackups.TabIndex = 4;
             this.lsvBackups.UseCompatibleStateImageBehavior = false;
             this.lsvBackups.View = System.Windows.Forms.View.Details;
@@ -100,21 +100,22 @@
             // colName
             // 
             this.colName.Text = "Name";
-            this.colName.Width = 225;
+            this.colName.Width = 202;
             // 
             // colDate
             // 
             this.colDate.Text = "Date";
-            this.colDate.Width = 115;
+            this.colDate.Width = 134;
             // 
             // colEncoder
             // 
             this.colEncoder.Text = "Encoder";
-            this.colEncoder.Width = 85;
+            this.colEncoder.Width = 118;
             // 
             // colVideo
             // 
             this.colVideo.Text = "Video";
+            this.colVideo.Width = 78;
             // 
             // btnOpenDetails
             // 
@@ -151,9 +152,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbxNotes);
             this.groupBox1.Controls.Add(this.btnExport);
             this.groupBox1.Controls.Add(this.btnOpenVideo);
-            this.groupBox1.Controls.Add(this.lblNotes);
             this.groupBox1.Controls.Add(this.lblDate);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.btnDeleteBackup);
@@ -162,7 +163,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnOpenDetails);
             this.groupBox1.Controls.Add(this.btnRestoreBackup);
-            this.groupBox1.Location = new System.Drawing.Point(13, 390);
+            this.groupBox1.Location = new System.Drawing.Point(13, 346);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(559, 160);
             this.groupBox1.TabIndex = 9;
@@ -190,13 +191,6 @@
             this.btnOpenVideo.Text = "Open video";
             this.btnOpenVideo.UseVisualStyleBackColor = true;
             this.btnOpenVideo.Click += new System.EventHandler(this.btnOpenVideo_Click);
-            // 
-            // lblNotes
-            // 
-            this.lblNotes.Location = new System.Drawing.Point(43, 47);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(407, 98);
-            this.lblNotes.TabIndex = 15;
             // 
             // lblDate
             // 
@@ -272,11 +266,21 @@
             // 
             this.sfdExport.Filter = "ZIP files|*.zip|All files|*.*";
             // 
+            // tbxNotes
+            // 
+            this.tbxNotes.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbxNotes.Location = new System.Drawing.Point(46, 46);
+            this.tbxNotes.Name = "tbxNotes";
+            this.tbxNotes.Size = new System.Drawing.Size(404, 106);
+            this.tbxNotes.TabIndex = 19;
+            this.tbxNotes.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 561);
+            this.ClientSize = new System.Drawing.Size(586, 519);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCreateBackup);
@@ -310,7 +314,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDeleteBackup;
         private System.Windows.Forms.ColumnHeader colEncoder;
-        private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnOpenVideo;
@@ -319,6 +322,7 @@
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.OpenFileDialog ofdImport;
         private System.Windows.Forms.SaveFileDialog sfdExport;
+        private System.Windows.Forms.RichTextBox tbxNotes;
     }
 }
 
