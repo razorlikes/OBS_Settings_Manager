@@ -195,7 +195,7 @@ namespace OBS_Settings_Manager
 
                 try
                 {
-                    ZipFile.ExtractToDirectory(ofdImport.FileName, Path.Combine(selectedProfileBackupPath, data.name));    //TODO  import/export exceptions
+                    ZipFile.ExtractToDirectory(ofdImport.FileName, Path.Combine(selectedProfileBackupPath, "backup_" + data.date.ToString("yyyyMMddTHHmmss")));    //TODO  import/export exceptions
                 }
                 catch (IOException IOexc)
                 {
