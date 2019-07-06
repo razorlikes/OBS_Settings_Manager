@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("test");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.cmbProfiles = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lsvBackups = new System.Windows.Forms.ListView();
@@ -52,14 +53,25 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.ofdImport = new System.Windows.Forms.OpenFileDialog();
             this.sfdExport = new System.Windows.Forms.SaveFileDialog();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbProfiles
             // 
             this.cmbProfiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProfiles.FormattingEnabled = true;
-            this.cmbProfiles.Location = new System.Drawing.Point(13, 25);
+            this.cmbProfiles.Location = new System.Drawing.Point(12, 46);
             this.cmbProfiles.Name = "cmbProfiles";
             this.cmbProfiles.Size = new System.Drawing.Size(121, 21);
             this.cmbProfiles.TabIndex = 0;
@@ -68,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 9);
+            this.label1.Location = new System.Drawing.Point(9, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 1;
@@ -88,7 +100,7 @@
             listViewItem1.IndentCount = 200;
             this.lsvBackups.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.lsvBackups.Location = new System.Drawing.Point(13, 53);
+            this.lsvBackups.Location = new System.Drawing.Point(12, 73);
             this.lsvBackups.MultiSelect = false;
             this.lsvBackups.Name = "lsvBackups";
             this.lsvBackups.Size = new System.Drawing.Size(559, 287);
@@ -131,7 +143,7 @@
             // btnCreateBackup
             // 
             this.btnCreateBackup.AutoSize = true;
-            this.btnCreateBackup.Location = new System.Drawing.Point(140, 24);
+            this.btnCreateBackup.Location = new System.Drawing.Point(139, 44);
             this.btnCreateBackup.Name = "btnCreateBackup";
             this.btnCreateBackup.Size = new System.Drawing.Size(95, 23);
             this.btnCreateBackup.TabIndex = 7;
@@ -142,7 +154,7 @@
             // btnRestoreBackup
             // 
             this.btnRestoreBackup.Enabled = false;
-            this.btnRestoreBackup.Location = new System.Drawing.Point(456, 100);
+            this.btnRestoreBackup.Location = new System.Drawing.Point(456, 71);
             this.btnRestoreBackup.Name = "btnRestoreBackup";
             this.btnRestoreBackup.Size = new System.Drawing.Size(95, 23);
             this.btnRestoreBackup.TabIndex = 8;
@@ -163,7 +175,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnOpenDetails);
             this.groupBox1.Controls.Add(this.btnRestoreBackup);
-            this.groupBox1.Location = new System.Drawing.Point(13, 346);
+            this.groupBox1.Location = new System.Drawing.Point(12, 366);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(559, 160);
             this.groupBox1.TabIndex = 9;
@@ -176,6 +188,7 @@
             this.tbxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxNotes.Location = new System.Drawing.Point(46, 46);
             this.tbxNotes.Name = "tbxNotes";
+            this.tbxNotes.ReadOnly = true;
             this.tbxNotes.Size = new System.Drawing.Size(404, 106);
             this.tbxNotes.TabIndex = 19;
             this.tbxNotes.Text = "";
@@ -183,7 +196,7 @@
             // btnExport
             // 
             this.btnExport.Enabled = false;
-            this.btnExport.Location = new System.Drawing.Point(456, 71);
+            this.btnExport.Location = new System.Drawing.Point(456, 100);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(95, 23);
             this.btnExport.TabIndex = 17;
@@ -260,7 +273,7 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(241, 24);
+            this.btnImport.Location = new System.Drawing.Point(240, 44);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(95, 23);
             this.btnImport.TabIndex = 10;
@@ -276,23 +289,106 @@
             // 
             this.sfdExport.Filter = "ZIP files|*.zip|All files|*.*";
             // 
+            // btnSettings
+            // 
+            this.btnSettings.Location = new System.Drawing.Point(496, 44);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(75, 23);
+            this.btnSettings.TabIndex = 11;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(583, 24);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createBackupToolStripMenuItem,
+            this.importBackupToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // createBackupToolStripMenuItem
+            // 
+            this.createBackupToolStripMenuItem.Name = "createBackupToolStripMenuItem";
+            this.createBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createBackupToolStripMenuItem.Text = "Create Backup";
+            // 
+            // importBackupToolStripMenuItem
+            // 
+            this.importBackupToolStripMenuItem.Name = "importBackupToolStripMenuItem";
+            this.importBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importBackupToolStripMenuItem.Text = "Import Backup";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 519);
+            this.ClientSize = new System.Drawing.Size(583, 537);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCreateBackup);
             this.Controls.Add(this.lsvBackups);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbProfiles);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "OBS Settings Manager";
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,6 +419,16 @@
         private System.Windows.Forms.OpenFileDialog ofdImport;
         private System.Windows.Forms.SaveFileDialog sfdExport;
         private System.Windows.Forms.RichTextBox tbxNotes;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
 

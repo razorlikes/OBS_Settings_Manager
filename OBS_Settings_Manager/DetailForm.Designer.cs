@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailForm));
             this.rbtnRecording = new System.Windows.Forms.RadioButton();
             this.rbtnStreaming = new System.Windows.Forms.RadioButton();
             this.lsvDetails = new System.Windows.Forms.ListView();
@@ -120,6 +121,7 @@
             this.Controls.Add(this.rbtnStreaming);
             this.Controls.Add(this.lsvDetails);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DetailForm";
             this.Text = "Detailed Profile View";
             this.ResumeLayout(false);

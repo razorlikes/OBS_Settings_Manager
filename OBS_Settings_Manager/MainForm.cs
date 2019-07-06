@@ -227,6 +227,12 @@ namespace OBS_Settings_Manager
             }
         }
 
+        private void BtnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Show();
+        }
+
         private void lsvBackups_SelectedIndexChanged(object sender, EventArgs e)
         {
             string itemName = "";

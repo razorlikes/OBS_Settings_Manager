@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BackupCreationForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
@@ -45,18 +46,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(32, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this.label1.Text = "Name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(32, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Notes";
+            this.label2.Text = "Notes:";
             // 
             // tbxName
             // 
@@ -109,13 +110,13 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Video path";
+            this.label4.Text = "Video path:";
             // 
             // tbxVideoPath
             // 
-            this.tbxVideoPath.Location = new System.Drawing.Point(76, 117);
+            this.tbxVideoPath.Location = new System.Drawing.Point(76, 118);
             this.tbxVideoPath.Name = "tbxVideoPath";
             this.tbxVideoPath.Size = new System.Drawing.Size(186, 20);
             this.tbxVideoPath.TabIndex = 11;
@@ -129,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 180);
+            this.ClientSize = new System.Drawing.Size(361, 181);
             this.Controls.Add(this.tbxVideoPath);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAddVideo);
@@ -140,6 +141,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BackupCreationForm";
             this.Text = "Create New Backup";
             this.Shown += new System.EventHandler(this.BackupCreationForm_Shown);

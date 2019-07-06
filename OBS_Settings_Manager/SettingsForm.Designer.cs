@@ -1,6 +1,6 @@
 ﻿namespace OBS_Settings_Manager
 {
-    partial class Settings
+    partial class SettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.label1 = new System.Windows.Forms.Label();
             this.tbxBackupFolder = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,7 +59,7 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Settings
+            // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -66,7 +67,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbxBackupFolder);
             this.Controls.Add(this.label1);
-            this.Name = "Settings";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "SettingsForm";
             this.Text = "Settings";
             this.ResumeLayout(false);
             this.PerformLayout();
