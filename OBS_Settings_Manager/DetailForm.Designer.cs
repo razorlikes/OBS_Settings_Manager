@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailForm));
             this.rbtnRecording = new System.Windows.Forms.RadioButton();
             this.rbtnStreaming = new System.Windows.Forms.RadioButton();
+            this.rbtnBasic = new System.Windows.Forms.RadioButton();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.lsvDetails = new System.Windows.Forms.ListView();
             this.headerSetting = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.headerValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.rbtnBasic = new System.Windows.Forms.RadioButton();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rbtnRecording
@@ -61,6 +61,27 @@
             this.rbtnStreaming.Text = "Streaming";
             this.rbtnStreaming.UseVisualStyleBackColor = true;
             this.rbtnStreaming.CheckedChanged += new System.EventHandler(this.rbtnStreaming_CheckedChanged);
+            // 
+            // rbtnBasic
+            // 
+            this.rbtnBasic.AutoSize = true;
+            this.rbtnBasic.Location = new System.Drawing.Point(170, 12);
+            this.rbtnBasic.Name = "rbtnBasic";
+            this.rbtnBasic.Size = new System.Drawing.Size(90, 17);
+            this.rbtnBasic.TabIndex = 11;
+            this.rbtnBasic.Text = "Basic settings";
+            this.rbtnBasic.UseVisualStyleBackColor = true;
+            this.rbtnBasic.CheckedChanged += new System.EventHandler(this.rbtnBasic_CheckedChanged);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(370, 9);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lsvDetails
             // 
@@ -88,28 +109,6 @@
             this.headerValue.Text = "Value";
             this.headerValue.Width = 205;
             // 
-            // rbtnBasic
-            // 
-            this.rbtnBasic.AutoSize = true;
-            this.rbtnBasic.Location = new System.Drawing.Point(170, 12);
-            this.rbtnBasic.Name = "rbtnBasic";
-            this.rbtnBasic.Size = new System.Drawing.Size(90, 17);
-            this.rbtnBasic.TabIndex = 11;
-            this.rbtnBasic.TabStop = true;
-            this.rbtnBasic.Text = "Basic settings";
-            this.rbtnBasic.UseVisualStyleBackColor = true;
-            this.rbtnBasic.CheckedChanged += new System.EventHandler(this.rbtnBasic_CheckedChanged);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(370, 9);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 12;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // DetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,10 +132,10 @@
 
         private System.Windows.Forms.RadioButton rbtnRecording;
         private System.Windows.Forms.RadioButton rbtnStreaming;
+        private System.Windows.Forms.RadioButton rbtnBasic;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ListView lsvDetails;
         private System.Windows.Forms.ColumnHeader headerSetting;
         private System.Windows.Forms.ColumnHeader headerValue;
-        private System.Windows.Forms.RadioButton rbtnBasic;
-        private System.Windows.Forms.Button btnRefresh;
     }
 }

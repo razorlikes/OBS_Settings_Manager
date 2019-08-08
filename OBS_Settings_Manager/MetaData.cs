@@ -36,9 +36,19 @@ namespace OBS_Settings_Manager
 
         public MetaData LoadData(string path)
         {
-            FileStream fs = new FileStream(Path.Combine(path, "metaINF.dat"), FileMode.Open);
+            FileStream fs;
             BinaryFormatter formatter = new BinaryFormatter();
             MetaData data = new MetaData();
+
+            try
+            {
+                fs = new FileStream(Path.Combine(path, "metaINF.dat"), FileMode.Open);
+            }
+            catch (FileNotFoundException exc)
+            {
+                Debug.Print("ERROR: File not found: " + exc.ToString());
+                return new MetaData();
+            }
 
             try
             {

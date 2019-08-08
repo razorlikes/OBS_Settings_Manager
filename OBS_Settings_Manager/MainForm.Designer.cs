@@ -56,13 +56,14 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -103,7 +104,7 @@
             this.lsvBackups.Location = new System.Drawing.Point(12, 73);
             this.lsvBackups.MultiSelect = false;
             this.lsvBackups.Name = "lsvBackups";
-            this.lsvBackups.Size = new System.Drawing.Size(559, 287);
+            this.lsvBackups.Size = new System.Drawing.Size(560, 287);
             this.lsvBackups.TabIndex = 4;
             this.lsvBackups.UseCompatibleStateImageBehavior = false;
             this.lsvBackups.View = System.Windows.Forms.View.Details;
@@ -132,7 +133,7 @@
             // btnOpenDetails
             // 
             this.btnOpenDetails.Enabled = false;
-            this.btnOpenDetails.Location = new System.Drawing.Point(456, 13);
+            this.btnOpenDetails.Location = new System.Drawing.Point(459, 19);
             this.btnOpenDetails.Name = "btnOpenDetails";
             this.btnOpenDetails.Size = new System.Drawing.Size(95, 23);
             this.btnOpenDetails.TabIndex = 6;
@@ -154,7 +155,7 @@
             // btnRestoreBackup
             // 
             this.btnRestoreBackup.Enabled = false;
-            this.btnRestoreBackup.Location = new System.Drawing.Point(456, 71);
+            this.btnRestoreBackup.Location = new System.Drawing.Point(459, 73);
             this.btnRestoreBackup.Name = "btnRestoreBackup";
             this.btnRestoreBackup.Size = new System.Drawing.Size(95, 23);
             this.btnRestoreBackup.TabIndex = 8;
@@ -164,6 +165,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.tbxNotes);
             this.groupBox1.Controls.Add(this.btnExport);
             this.groupBox1.Controls.Add(this.btnOpenVideo);
@@ -177,7 +179,7 @@
             this.groupBox1.Controls.Add(this.btnRestoreBackup);
             this.groupBox1.Location = new System.Drawing.Point(12, 366);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(559, 160);
+            this.groupBox1.Size = new System.Drawing.Size(560, 160);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Backup info";
@@ -196,7 +198,7 @@
             // btnExport
             // 
             this.btnExport.Enabled = false;
-            this.btnExport.Location = new System.Drawing.Point(456, 100);
+            this.btnExport.Location = new System.Drawing.Point(459, 102);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(95, 23);
             this.btnExport.TabIndex = 17;
@@ -207,7 +209,7 @@
             // btnOpenVideo
             // 
             this.btnOpenVideo.Enabled = false;
-            this.btnOpenVideo.Location = new System.Drawing.Point(456, 42);
+            this.btnOpenVideo.Location = new System.Drawing.Point(459, 46);
             this.btnOpenVideo.Name = "btnOpenVideo";
             this.btnOpenVideo.Size = new System.Drawing.Size(95, 23);
             this.btnOpenVideo.TabIndex = 16;
@@ -236,7 +238,7 @@
             // btnDeleteBackup
             // 
             this.btnDeleteBackup.Enabled = false;
-            this.btnDeleteBackup.Location = new System.Drawing.Point(456, 129);
+            this.btnDeleteBackup.Location = new System.Drawing.Point(459, 131);
             this.btnDeleteBackup.Name = "btnDeleteBackup";
             this.btnDeleteBackup.Size = new System.Drawing.Size(95, 23);
             this.btnDeleteBackup.TabIndex = 12;
@@ -291,7 +293,7 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(496, 44);
+            this.btnSettings.Location = new System.Drawing.Point(497, 44);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 23);
             this.btnSettings.TabIndex = 11;
@@ -301,6 +303,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
@@ -308,7 +311,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(583, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(584, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -321,6 +324,18 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -330,35 +345,23 @@
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            // 
             // createBackupToolStripMenuItem
             // 
             this.createBackupToolStripMenuItem.Name = "createBackupToolStripMenuItem";
-            this.createBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createBackupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createBackupToolStripMenuItem.Text = "Create Backup";
             // 
             // importBackupToolStripMenuItem
             // 
             this.importBackupToolStripMenuItem.Name = "importBackupToolStripMenuItem";
-            this.importBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importBackupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.importBackupToolStripMenuItem.Text = "Import Backup";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
             // 
             // helpToolStripMenuItem
             // 
@@ -366,11 +369,21 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(269, 132);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(20, 20);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "-";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 537);
+            this.ClientSize = new System.Drawing.Size(584, 536);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.groupBox1);
@@ -429,6 +442,7 @@
         private System.Windows.Forms.ToolStripMenuItem createBackupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importBackupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 

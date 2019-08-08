@@ -33,8 +33,6 @@ namespace OBS_Settings_Manager
             else
                 meta.encoder = basicSettings["SimpleOutput"]["StreamEncoder"];
 
-
-
             string backupDest = Path.Combine(MainForm.selectedProfileBackupPath, "backup_" + DateTime.Now.ToString("yyyyMMddTHHmmss"));
 
             if (!Directory.Exists(backupDest))
