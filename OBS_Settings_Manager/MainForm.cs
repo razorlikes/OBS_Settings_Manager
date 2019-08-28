@@ -145,6 +145,12 @@ namespace OBS_Settings_Manager
             string selectedProfile = cmbProfiles.SelectedItem.ToString();
             selectedProfilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "obs-studio", "basic", "profiles", selectedProfile);
             selectedProfileBackupPath = Path.Combine(backupPath, selectedProfile);
+
+            if (!Directory.Exists(selectedProfilePath))
+                btnCreateBackup.Enabled = false;
+            else if (Directory.Exists(selectedProfilePath))
+                btnCreateBackup.Enabled = true;
+
             BuildBackupList(selectedProfileBackupPath);
 
             Debug.Print("DEBUG: Current profile: " + selectedProfile);
@@ -208,7 +214,6 @@ namespace OBS_Settings_Manager
                         Directory.CreateDirectory(Path.Combine(selectedProfileBackupPath, data.name));
                         ZipFile.ExtractToDirectory(ofdImport.FileName, Path.Combine(selectedProfileBackupPath, data.name));
                     }
-                        
 
                 }
                 catch (Exception exc)
@@ -226,12 +231,6 @@ namespace OBS_Settings_Manager
             {
                 ZipFile.CreateFromDirectory(selectedBackupPath, sfdExport.FileName);
             }
-        }
-
-        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SettingsForm settingsForm = new SettingsForm();
-            settingsForm.Show();
         }
 
         private void lsvBackups_SelectedIndexChanged(object sender, EventArgs e)
@@ -300,6 +299,42 @@ namespace OBS_Settings_Manager
                 lblDate.Text = "";
                 tbxNotes.Text = "";
             }
+        }
+
+        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Show();
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void CreateBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnCreateBackup_Click(sender, e);
+        }
+
+        private void ImportBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnImport_Click(sender, e);
+        }
+
+        private void ViewOnGitHubcomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/razorlikes/OBS_Settings_Manager");
+        }
+
+        private void CheckForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/razorlikes/OBS_Settings_Manager/releases/latest");
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutForm().Show();
         }
     }
 }

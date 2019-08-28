@@ -81,7 +81,7 @@
             this.btnSaveBackup.Name = "btnSaveBackup";
             this.btnSaveBackup.Size = new System.Drawing.Size(81, 23);
             this.btnSaveBackup.TabIndex = 5;
-            this.btnSaveBackup.Text = "Save backup";
+            this.btnSaveBackup.Text = "Save Backup";
             this.btnSaveBackup.UseVisualStyleBackColor = true;
             this.btnSaveBackup.Click += new System.EventHandler(this.btnSaveBackup_Click);
             // 
@@ -101,7 +101,7 @@
             this.btnAddVideo.Name = "btnAddVideo";
             this.btnAddVideo.Size = new System.Drawing.Size(81, 22);
             this.btnAddVideo.TabIndex = 9;
-            this.btnAddVideo.Text = "Add video";
+            this.btnAddVideo.Text = "Add Video";
             this.btnAddVideo.UseVisualStyleBackColor = true;
             this.btnAddVideo.Click += new System.EventHandler(this.btnAddVideo_Click);
             // 

@@ -20,6 +20,12 @@ namespace OBS_Settings_Manager
 
         private void btnSaveBackup_Click(object sender, EventArgs e)
         {
+            if (tbxName.TextLength == 0)
+            {
+                MessageBox.Show("Please enter a backup name!");
+                return;
+            }
+
             MetaData meta = new MetaData();
             meta.date = DateTime.Now;
             meta.name = tbxName.Text;

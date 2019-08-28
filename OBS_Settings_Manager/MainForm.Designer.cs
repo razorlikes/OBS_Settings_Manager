@@ -62,6 +62,18 @@
             this.createBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewOnGitHubcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.openDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openVideoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -135,7 +147,7 @@
             this.btnOpenDetails.Name = "btnOpenDetails";
             this.btnOpenDetails.Size = new System.Drawing.Size(95, 23);
             this.btnOpenDetails.TabIndex = 6;
-            this.btnOpenDetails.Text = "Open details";
+            this.btnOpenDetails.Text = "Open Details";
             this.btnOpenDetails.UseVisualStyleBackColor = true;
             this.btnOpenDetails.Click += new System.EventHandler(this.btnOpenDetails_Click);
             // 
@@ -146,7 +158,7 @@
             this.btnCreateBackup.Name = "btnCreateBackup";
             this.btnCreateBackup.Size = new System.Drawing.Size(95, 23);
             this.btnCreateBackup.TabIndex = 7;
-            this.btnCreateBackup.Text = "Create backup";
+            this.btnCreateBackup.Text = "Create Backup";
             this.btnCreateBackup.UseVisualStyleBackColor = true;
             this.btnCreateBackup.Click += new System.EventHandler(this.btnCreateBackup_Click);
             // 
@@ -157,7 +169,7 @@
             this.btnRestoreBackup.Name = "btnRestoreBackup";
             this.btnRestoreBackup.Size = new System.Drawing.Size(95, 23);
             this.btnRestoreBackup.TabIndex = 8;
-            this.btnRestoreBackup.Text = "Restore backup";
+            this.btnRestoreBackup.Text = "Restore Backup";
             this.btnRestoreBackup.UseVisualStyleBackColor = true;
             this.btnRestoreBackup.Click += new System.EventHandler(this.btnRestoreBackup_Click);
             // 
@@ -210,7 +222,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(95, 23);
             this.btnExport.TabIndex = 17;
-            this.btnExport.Text = "Export backup";
+            this.btnExport.Text = "Export Backup";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
@@ -221,7 +233,7 @@
             this.btnOpenVideo.Name = "btnOpenVideo";
             this.btnOpenVideo.Size = new System.Drawing.Size(95, 23);
             this.btnOpenVideo.TabIndex = 16;
-            this.btnOpenVideo.Text = "Open video";
+            this.btnOpenVideo.Text = "Open Video";
             this.btnOpenVideo.UseVisualStyleBackColor = true;
             this.btnOpenVideo.Click += new System.EventHandler(this.btnOpenVideo_Click);
             // 
@@ -250,7 +262,7 @@
             this.btnDeleteBackup.Name = "btnDeleteBackup";
             this.btnDeleteBackup.Size = new System.Drawing.Size(95, 23);
             this.btnDeleteBackup.TabIndex = 12;
-            this.btnDeleteBackup.Text = "Delete backup";
+            this.btnDeleteBackup.Text = "Delete Backup";
             this.btnDeleteBackup.UseVisualStyleBackColor = true;
             this.btnDeleteBackup.Click += new System.EventHandler(this.btnDeleteBackup_Click);
             // 
@@ -287,7 +299,7 @@
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(95, 23);
             this.btnImport.TabIndex = 10;
-            this.btnImport.Text = "Import backup";
+            this.btnImport.Text = "Import Backup";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
@@ -316,6 +328,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
+            this.toolStripSeparator3,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -333,12 +346,20 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // backupsToolStripMenuItem
             // 
             this.backupsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createBackupToolStripMenuItem,
-            this.importBackupToolStripMenuItem});
+            this.importBackupToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.openDetailsToolStripMenuItem,
+            this.openVideoToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.restoreBackupToolStripMenuItem,
+            this.exportBackupToolStripMenuItem,
+            this.deleteBackupToolStripMenuItem});
             this.backupsToolStripMenuItem.Name = "backupsToolStripMenuItem";
             this.backupsToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.backupsToolStripMenuItem.Text = "Backups";
@@ -348,18 +369,96 @@
             this.createBackupToolStripMenuItem.Name = "createBackupToolStripMenuItem";
             this.createBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createBackupToolStripMenuItem.Text = "Create Backup";
+            this.createBackupToolStripMenuItem.Click += new System.EventHandler(this.CreateBackupToolStripMenuItem_Click);
             // 
             // importBackupToolStripMenuItem
             // 
             this.importBackupToolStripMenuItem.Name = "importBackupToolStripMenuItem";
             this.importBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importBackupToolStripMenuItem.Text = "Import Backup";
+            this.importBackupToolStripMenuItem.Click += new System.EventHandler(this.ImportBackupToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewOnGitHubcomToolStripMenuItem,
+            this.checkForUpdatesToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
+            // 
+            // viewOnGitHubcomToolStripMenuItem
+            // 
+            this.viewOnGitHubcomToolStripMenuItem.Name = "viewOnGitHubcomToolStripMenuItem";
+            this.viewOnGitHubcomToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.viewOnGitHubcomToolStripMenuItem.Text = "View on GitHub.com";
+            this.viewOnGitHubcomToolStripMenuItem.Click += new System.EventHandler(this.ViewOnGitHubcomToolStripMenuItem_Click);
+            // 
+            // checkForUpdatesToolStripMenuItem
+            // 
+            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.checkForUpdatesToolStripMenuItem.Text = "Check for updates...";
+            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            // 
+            // openDetailsToolStripMenuItem
+            // 
+            this.openDetailsToolStripMenuItem.Name = "openDetailsToolStripMenuItem";
+            this.openDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openDetailsToolStripMenuItem.Text = "Open Details";
+            // 
+            // openVideoToolStripMenuItem
+            // 
+            this.openVideoToolStripMenuItem.Name = "openVideoToolStripMenuItem";
+            this.openVideoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openVideoToolStripMenuItem.Text = "Open Video";
+            // 
+            // restoreBackupToolStripMenuItem
+            // 
+            this.restoreBackupToolStripMenuItem.Name = "restoreBackupToolStripMenuItem";
+            this.restoreBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restoreBackupToolStripMenuItem.Text = "Restore Backup";
+            // 
+            // exportBackupToolStripMenuItem
+            // 
+            this.exportBackupToolStripMenuItem.Name = "exportBackupToolStripMenuItem";
+            this.exportBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportBackupToolStripMenuItem.Text = "Export Backup";
+            // 
+            // deleteBackupToolStripMenuItem
+            // 
+            this.deleteBackupToolStripMenuItem.Name = "deleteBackupToolStripMenuItem";
+            this.deleteBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteBackupToolStripMenuItem.Text = "Delete Backup";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // MainForm
             // 
@@ -422,6 +521,18 @@
         private System.Windows.Forms.ToolStripMenuItem importBackupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem viewOnGitHubcomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openVideoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem restoreBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteBackupToolStripMenuItem;
     }
 }
 
