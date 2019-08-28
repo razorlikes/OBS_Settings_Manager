@@ -145,6 +145,7 @@ namespace OBS_Settings_Manager
             string selectedProfile = cmbProfiles.SelectedItem.ToString();
             selectedProfilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "obs-studio", "basic", "profiles", selectedProfile);
             selectedProfileBackupPath = Path.Combine(backupPath, selectedProfile);
+            BuildBackupList(selectedProfileBackupPath);
 
             Debug.Print("DEBUG: Current profile: " + selectedProfile);
             Debug.Print("DEBUG: selectedProfilePath: " + selectedProfilePath);
@@ -227,7 +228,7 @@ namespace OBS_Settings_Manager
             }
         }
 
-        private void BtnSettings_Click(object sender, EventArgs e)
+        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
