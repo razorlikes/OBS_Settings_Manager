@@ -31,7 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.label1 = new System.Windows.Forms.Label();
             this.tbxBackupFolder = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnChooseBackupFolder = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.fbdBackupFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -47,27 +50,53 @@
             // 
             this.tbxBackupFolder.Location = new System.Drawing.Point(16, 29);
             this.tbxBackupFolder.Name = "tbxBackupFolder";
-            this.tbxBackupFolder.Size = new System.Drawing.Size(278, 20);
-            this.tbxBackupFolder.TabIndex = 1;
+            this.tbxBackupFolder.ReadOnly = true;
+            this.tbxBackupFolder.Size = new System.Drawing.Size(270, 20);
+            this.tbxBackupFolder.TabIndex = 2;
             // 
-            // button1
+            // btnChooseBackupFolder
             // 
-            this.button1.Location = new System.Drawing.Point(300, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 22);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnChooseBackupFolder.Location = new System.Drawing.Point(292, 28);
+            this.btnChooseBackupFolder.Name = "btnChooseBackupFolder";
+            this.btnChooseBackupFolder.Size = new System.Drawing.Size(83, 22);
+            this.btnChooseBackupFolder.TabIndex = 1;
+            this.btnChooseBackupFolder.Text = "Choose Folder";
+            this.btnChooseBackupFolder.UseVisualStyleBackColor = true;
+            this.btnChooseBackupFolder.Click += new System.EventHandler(this.btnChooseBackupFolder_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(292, 314);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(83, 23);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(203, 314);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(83, 23);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Save Settings";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 349);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnChooseBackupFolder);
             this.Controls.Add(this.tbxBackupFolder);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "SettingsForm";
             this.Text = "Settings";
             this.ResumeLayout(false);
@@ -79,6 +108,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxBackupFolder;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnChooseBackupFolder;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.FolderBrowserDialog fbdBackupFolder;
     }
 }

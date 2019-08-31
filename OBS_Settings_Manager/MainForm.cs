@@ -4,6 +4,8 @@ using System.IO;
 using System.Windows.Forms;
 using System.IO.Compression;
 using System.Runtime.Serialization.Formatters.Binary;
+using IniParser;
+using IniParser.Model;
 
 namespace OBS_Settings_Manager
 {
@@ -11,14 +13,13 @@ namespace OBS_Settings_Manager
     {
         public static string selectedProfilePath, selectedProfileBackupPath, selectedBackupPath;
 
-        string backupPath, mainPath;
+        string backupPath;
 
         public MainForm()
         {
             InitializeComponent();
             
-            backupPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "obs-studio", "SettingsManager", "backups");
-            mainPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "obs-studio", "SettingsManager");
+            //backupPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "obs-studio", "SettingsManager", "backups");
 
             lsvBackups.ListViewItemSorter = new ListViewItemComparer();
         }
@@ -27,20 +28,41 @@ namespace OBS_Settings_Manager
         {
             string[] profilePaths, backupProfilePaths;
 
-            if (!Directory.Exists(backupPath))
+            cmbProfiles.Items.Clear(); //clear items when settings were changed
+
+            if (File.Exists(Path.Combine(Environment.CurrentDirectory, "settings.ini")))
             {
-                DialogResult diagres = MessageBox.Show("Since this seems to be your first run of this program it will now create all needed files. Those files are located under \"" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\obs-studio\"\n\n" +
+                FileIniDataParser parser = new FileIniDataParser();
+                IniData iniData = parser.ReadFile(Path.Combine(Environment.CurrentDirectory, "settings.ini"));
+
+                backupPath = iniData["General"]["backupFolder"];
+
+                if (!Directory.Exists(backupPath))
+                    Directory.CreateDirectory(backupPath);
+            }
+            else
+            {
+                DialogResult diagres = MessageBox.Show("Since this seems to be your first run of this program you will have to select a backup folder in the settings. \n" +
                                                        "None of your initial config files will be altered during this process.\n" +
                                                        "I am NOT responsible if any of your files become corrupt or go missing by using my program. This software is still a WIP project!\n" +
                                                        "If you aren't fine with this please click the Cancel button below."
                                                        , "Welcome", MessageBoxButtons.OKCancel);
 
-                if (diagres == DialogResult.Cancel)
-                    Application.Exit();
-                else if (diagres == DialogResult.OK)
+                if (diagres == DialogResult.OK)
                 {
-                    Directory.CreateDirectory(mainPath);
+                    new SettingsForm().ShowDialog();
+
+                    FileIniDataParser parser = new FileIniDataParser();
+                    IniData iniData = parser.ReadFile(Path.Combine(Environment.CurrentDirectory, "settings.ini"));
+
+                    backupPath = iniData["General"]["backupFolder"];
+
                     Directory.CreateDirectory(backupPath);
+                }
+                else
+                {
+                    Application.Exit();
+                    return;
                 }
             }
 
@@ -325,23 +347,14 @@ namespace OBS_Settings_Manager
 
         private void tsmiSettings_Click(object sender, EventArgs e)
         {
-            SettingsForm settingsForm = new SettingsForm();
-            settingsForm.Show();
+            new SettingsForm().ShowDialog();
+
+            MainForm_Shown(sender, e);
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void CreateBackupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            btnCreateBackup_Click(sender, e);
-        }
-
-        private void ImportBackupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            btnImport_Click(sender, e);
         }
 
         private void tsmiGithubIssue_Click(object sender, EventArgs e)

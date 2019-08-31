@@ -148,7 +148,7 @@
             // btnCreateBackup
             // 
             this.btnCreateBackup.AutoSize = true;
-            this.btnCreateBackup.Location = new System.Drawing.Point(139, 44);
+            this.btnCreateBackup.Location = new System.Drawing.Point(139, 45);
             this.btnCreateBackup.Name = "btnCreateBackup";
             this.btnCreateBackup.Size = new System.Drawing.Size(95, 23);
             this.btnCreateBackup.TabIndex = 7;
@@ -297,19 +297,19 @@
             // tsmiSettings
             // 
             this.tsmiSettings.Name = "tsmiSettings";
-            this.tsmiSettings.Size = new System.Drawing.Size(180, 22);
+            this.tsmiSettings.Size = new System.Drawing.Size(116, 22);
             this.tsmiSettings.Text = "Settings";
             this.tsmiSettings.Click += new System.EventHandler(this.tsmiSettings_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(113, 6);
             // 
             // tsmiExit
             // 
             this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiExit.Size = new System.Drawing.Size(116, 22);
             this.tsmiExit.Text = "Exit";
             this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
@@ -332,14 +332,14 @@
             // tsmiCreateBackup
             // 
             this.tsmiCreateBackup.Name = "tsmiCreateBackup";
-            this.tsmiCreateBackup.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCreateBackup.Size = new System.Drawing.Size(155, 22);
             this.tsmiCreateBackup.Text = "Create Backup";
             this.tsmiCreateBackup.Click += new System.EventHandler(this.btnCreateBackup_Click);
             // 
             // tsmiImport
             // 
             this.tsmiImport.Name = "tsmiImport";
-            this.tsmiImport.Size = new System.Drawing.Size(180, 22);
+            this.tsmiImport.Size = new System.Drawing.Size(155, 22);
             this.tsmiImport.Text = "Import Backup";
             this.tsmiImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
@@ -347,20 +347,20 @@
             // 
             this.tsmiExport.Enabled = false;
             this.tsmiExport.Name = "tsmiExport";
-            this.tsmiExport.Size = new System.Drawing.Size(180, 22);
+            this.tsmiExport.Size = new System.Drawing.Size(155, 22);
             this.tsmiExport.Text = "Export Backup";
             this.tsmiExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(152, 6);
             // 
             // tsmiOpenDetails
             // 
             this.tsmiOpenDetails.Enabled = false;
             this.tsmiOpenDetails.Name = "tsmiOpenDetails";
-            this.tsmiOpenDetails.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOpenDetails.Size = new System.Drawing.Size(155, 22);
             this.tsmiOpenDetails.Text = "Open Details";
             this.tsmiOpenDetails.Click += new System.EventHandler(this.btnOpenDetails_Click);
             // 
@@ -368,20 +368,20 @@
             // 
             this.tsmiOpenVideo.Enabled = false;
             this.tsmiOpenVideo.Name = "tsmiOpenVideo";
-            this.tsmiOpenVideo.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOpenVideo.Size = new System.Drawing.Size(155, 22);
             this.tsmiOpenVideo.Text = "Open Video";
             this.tsmiOpenVideo.Click += new System.EventHandler(this.btnOpenVideo_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(152, 6);
             // 
             // tsmiRestoreBackup
             // 
             this.tsmiRestoreBackup.Enabled = false;
             this.tsmiRestoreBackup.Name = "tsmiRestoreBackup";
-            this.tsmiRestoreBackup.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRestoreBackup.Size = new System.Drawing.Size(155, 22);
             this.tsmiRestoreBackup.Text = "Restore Backup";
             this.tsmiRestoreBackup.Click += new System.EventHandler(this.btnRestoreBackup_Click);
             // 
@@ -389,7 +389,7 @@
             // 
             this.tsmiDeleteBackup.Enabled = false;
             this.tsmiDeleteBackup.Name = "tsmiDeleteBackup";
-            this.tsmiDeleteBackup.Size = new System.Drawing.Size(180, 22);
+            this.tsmiDeleteBackup.Size = new System.Drawing.Size(155, 22);
             this.tsmiDeleteBackup.Text = "Delete Backup";
             this.tsmiDeleteBackup.Click += new System.EventHandler(this.btnDeleteBackup_Click);
             // 
@@ -452,6 +452,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "OBS Settings Manager";
             this.Shown += new System.EventHandler(this.MainForm_Shown);
