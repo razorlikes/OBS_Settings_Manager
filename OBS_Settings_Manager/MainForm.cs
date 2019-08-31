@@ -98,6 +98,7 @@ namespace OBS_Settings_Manager
             lsvBackups.Items.Clear();
             lsvBackups.Groups.Clear();
             ListViewItem[] lviList = new ListViewItem[backupPaths.Length];
+
             int i = 0;
             foreach (string backup in backupPaths)
             {
@@ -115,8 +116,8 @@ namespace OBS_Settings_Manager
                 lviList[i] = lvi;
                 i++;
             }
+
             lsvBackups.Items.AddRange(lviList);
-             
         }
 
         private void copyDir(string sourcePath, string destPath)
@@ -194,7 +195,7 @@ namespace OBS_Settings_Manager
                 {
                     data = (MetaData)formatter.Deserialize(entry.Open());
                 }
-                catch (NullReferenceException exc)
+                catch (NullReferenceException)
                 {
                     MessageBox.Show(this, "The selected file is not a backup or is corrupt.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
@@ -204,7 +205,7 @@ namespace OBS_Settings_Manager
                 {
                     ZipFile.ExtractToDirectory(ofdImport.FileName, Path.Combine(selectedProfileBackupPath, "backup_" + data.date.ToString("yyyyMMddTHHmmss")));    //TODO  import/export exceptions
                 }
-                catch (IOException IOexc)
+                catch (IOException)
                 {
                     DialogResult diagres = MessageBox.Show(this, "It seems that a backup with the same name already exists.\nOverwrite it?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -214,12 +215,11 @@ namespace OBS_Settings_Manager
                         Directory.CreateDirectory(Path.Combine(selectedProfileBackupPath, data.name));
                         ZipFile.ExtractToDirectory(ofdImport.FileName, Path.Combine(selectedProfileBackupPath, data.name));
                     }
-
                 }
-                catch (Exception exc)
+                catch (Exception)
                 {
-
                 }
+
                 BuildBackupList(selectedProfileBackupPath);
             }
         }
@@ -229,7 +229,15 @@ namespace OBS_Settings_Manager
             sfdExport.FileName = Path.GetFileName(selectedBackupPath) + ".zip";
             if (sfdExport.ShowDialog() == DialogResult.OK)
             {
-                ZipFile.CreateFromDirectory(selectedBackupPath, sfdExport.FileName);
+                try
+                {
+                    ZipFile.CreateFromDirectory(selectedBackupPath, sfdExport.FileName);
+                }
+                catch (IOException)
+                {
+                    File.Delete(sfdExport.FileName);
+                    ZipFile.CreateFromDirectory(selectedBackupPath, sfdExport.FileName);
+                }
             }
         }
 
@@ -245,10 +253,13 @@ namespace OBS_Settings_Manager
                 Debug.Print("DEBUG: selectedBackupPath: " + selectedBackupPath);
                 Debug.Print("DEBUG: lsv index change: " + itemName);
 
-                btnDeleteBackup.Enabled = true;
                 btnOpenDetails.Enabled = true;
+                btnDeleteBackup.Enabled = true;
                 btnRestoreBackup.Enabled = true;
-                btnExport.Enabled = true;
+                tsmiOpenDetails.Enabled = true;
+                tsmiDeleteBackup.Enabled = true;
+                tsmiRestoreBackup.Enabled = true;
+                tsmiExport.Enabled = true;
 
                 MetaData meta = new MetaData().LoadData(selectedBackupPath);
                 lblName.Text = meta.name;
@@ -256,15 +267,22 @@ namespace OBS_Settings_Manager
                 tbxNotes.Text = meta.notes;
 
                 if (meta.videopath != "" && meta.videopath != null)
+                {
                     btnOpenVideo.Enabled = true;
+                    tsmiOpenVideo.Enabled = true;
+                }
             }
             else
             {
-                btnDeleteBackup.Enabled = false;
                 btnOpenDetails.Enabled = false;
-                btnRestoreBackup.Enabled = false;
                 btnOpenVideo.Enabled = false;
-                btnExport.Enabled = false;
+                btnDeleteBackup.Enabled = false;
+                btnRestoreBackup.Enabled = false;
+                tsmiOpenDetails.Enabled = false;
+                tsmiOpenVideo.Enabled = false;
+                tsmiDeleteBackup.Enabled = false;
+                tsmiRestoreBackup.Enabled = false;
+                tsmiExport.Enabled = false;
 
                 lblName.Text = "";
                 lblDate.Text = "";
@@ -289,11 +307,15 @@ namespace OBS_Settings_Manager
                 Directory.Delete(selectedBackupPath, true);
                 BuildBackupList(selectedProfileBackupPath);
 
-                btnDeleteBackup.Enabled = false;
                 btnOpenDetails.Enabled = false;
-                btnRestoreBackup.Enabled = false;
                 btnOpenVideo.Enabled = false;
-                btnExport.Enabled = false;
+                btnDeleteBackup.Enabled = false;
+                btnRestoreBackup.Enabled = false;
+                tsmiOpenDetails.Enabled = false;
+                tsmiOpenVideo.Enabled = false;
+                tsmiDeleteBackup.Enabled = false;
+                tsmiRestoreBackup.Enabled = false;
+                tsmiExport.Enabled = false;
 
                 lblName.Text = "";
                 lblDate.Text = "";
@@ -301,13 +323,13 @@ namespace OBS_Settings_Manager
             }
         }
 
-        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiSettings_Click(object sender, EventArgs e)
         {
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
         }
 
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -322,17 +344,22 @@ namespace OBS_Settings_Manager
             btnImport_Click(sender, e);
         }
 
-        private void ViewOnGitHubcomToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiGithubIssue_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/razorlikes/OBS_Settings_Manager/issues/new");
+        }
+
+        private void tsmiGithubPage_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/razorlikes/OBS_Settings_Manager");
         }
 
-        private void CheckForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiGithubUpdate_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/razorlikes/OBS_Settings_Manager/releases/latest");
         }
 
-        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiAbout_Click(object sender, EventArgs e)
         {
             new AboutForm().Show();
         }

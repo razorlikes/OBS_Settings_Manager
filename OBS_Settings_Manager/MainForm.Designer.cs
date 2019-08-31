@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("test");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.cmbProfiles = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,9 +40,7 @@
             this.btnCreateBackup = new System.Windows.Forms.Button();
             this.btnRestoreBackup = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tbxNotes = new System.Windows.Forms.RichTextBox();
-            this.btnExport = new System.Windows.Forms.Button();
             this.btnOpenVideo = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -51,29 +48,29 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnImport = new System.Windows.Forms.Button();
             this.ofdImport = new System.Windows.Forms.OpenFileDialog();
             this.sfdExport = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewOnGitHubcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.openDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openVideoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restoreBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCreateBackup = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiOpenDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOpenVideo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiRestoreBackup = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDeleteBackup = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGithubPage = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGithubIssue = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGithubUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -108,9 +105,6 @@
             this.colVideo});
             this.lsvBackups.FullRowSelect = true;
             this.lsvBackups.HideSelection = false;
-            listViewItem1.IndentCount = 200;
-            this.lsvBackups.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.lsvBackups.Location = new System.Drawing.Point(12, 73);
             this.lsvBackups.MultiSelect = false;
             this.lsvBackups.Name = "lsvBackups";
@@ -143,7 +137,7 @@
             // btnOpenDetails
             // 
             this.btnOpenDetails.Enabled = false;
-            this.btnOpenDetails.Location = new System.Drawing.Point(459, 19);
+            this.btnOpenDetails.Location = new System.Drawing.Point(459, 11);
             this.btnOpenDetails.Name = "btnOpenDetails";
             this.btnOpenDetails.Size = new System.Drawing.Size(95, 23);
             this.btnOpenDetails.TabIndex = 6;
@@ -165,7 +159,7 @@
             // btnRestoreBackup
             // 
             this.btnRestoreBackup.Enabled = false;
-            this.btnRestoreBackup.Location = new System.Drawing.Point(459, 73);
+            this.btnRestoreBackup.Location = new System.Drawing.Point(459, 69);
             this.btnRestoreBackup.Name = "btnRestoreBackup";
             this.btnRestoreBackup.Size = new System.Drawing.Size(95, 23);
             this.btnRestoreBackup.TabIndex = 8;
@@ -175,9 +169,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.tbxNotes);
-            this.groupBox1.Controls.Add(this.btnExport);
             this.groupBox1.Controls.Add(this.btnOpenVideo);
             this.groupBox1.Controls.Add(this.lblDate);
             this.groupBox1.Controls.Add(this.lblName);
@@ -189,20 +181,10 @@
             this.groupBox1.Controls.Add(this.btnRestoreBackup);
             this.groupBox1.Location = new System.Drawing.Point(12, 366);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(560, 160);
+            this.groupBox1.Size = new System.Drawing.Size(560, 129);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Backup info";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(269, 132);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 20);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "-";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // tbxNotes
             // 
@@ -211,25 +193,14 @@
             this.tbxNotes.Location = new System.Drawing.Point(46, 46);
             this.tbxNotes.Name = "tbxNotes";
             this.tbxNotes.ReadOnly = true;
-            this.tbxNotes.Size = new System.Drawing.Size(404, 106);
+            this.tbxNotes.Size = new System.Drawing.Size(404, 75);
             this.tbxNotes.TabIndex = 19;
             this.tbxNotes.Text = "";
-            // 
-            // btnExport
-            // 
-            this.btnExport.Enabled = false;
-            this.btnExport.Location = new System.Drawing.Point(459, 102);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(95, 23);
-            this.btnExport.TabIndex = 17;
-            this.btnExport.Text = "Export Backup";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnOpenVideo
             // 
             this.btnOpenVideo.Enabled = false;
-            this.btnOpenVideo.Location = new System.Drawing.Point(459, 46);
+            this.btnOpenVideo.Location = new System.Drawing.Point(459, 40);
             this.btnOpenVideo.Name = "btnOpenVideo";
             this.btnOpenVideo.Size = new System.Drawing.Size(95, 23);
             this.btnOpenVideo.TabIndex = 16;
@@ -248,17 +219,16 @@
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(43, 16);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(16, 13);
+            this.lblName.Size = new System.Drawing.Size(410, 13);
             this.lblName.TabIndex = 13;
             this.lblName.Text = "   ";
             // 
             // btnDeleteBackup
             // 
             this.btnDeleteBackup.Enabled = false;
-            this.btnDeleteBackup.Location = new System.Drawing.Point(459, 131);
+            this.btnDeleteBackup.Location = new System.Drawing.Point(459, 98);
             this.btnDeleteBackup.Name = "btnDeleteBackup";
             this.btnDeleteBackup.Size = new System.Drawing.Size(95, 23);
             this.btnDeleteBackup.TabIndex = 12;
@@ -293,16 +263,6 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Name:";
             // 
-            // btnImport
-            // 
-            this.btnImport.Location = new System.Drawing.Point(240, 44);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(95, 23);
-            this.btnImport.TabIndex = 10;
-            this.btnImport.Text = "Import Backup";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
             // ofdImport
             // 
             this.ofdImport.Filter = "ZIP files|*.zip|All files|*.*";
@@ -327,145 +287,162 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripMenuItem,
+            this.tsmiSettings,
             this.toolStripSeparator3,
-            this.exitToolStripMenuItem});
+            this.tsmiExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // settingsToolStripMenuItem
+            // tsmiSettings
             // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // backupsToolStripMenuItem
-            // 
-            this.backupsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createBackupToolStripMenuItem,
-            this.importBackupToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.openDetailsToolStripMenuItem,
-            this.openVideoToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.restoreBackupToolStripMenuItem,
-            this.exportBackupToolStripMenuItem,
-            this.deleteBackupToolStripMenuItem});
-            this.backupsToolStripMenuItem.Name = "backupsToolStripMenuItem";
-            this.backupsToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.backupsToolStripMenuItem.Text = "Backups";
-            // 
-            // createBackupToolStripMenuItem
-            // 
-            this.createBackupToolStripMenuItem.Name = "createBackupToolStripMenuItem";
-            this.createBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.createBackupToolStripMenuItem.Text = "Create Backup";
-            this.createBackupToolStripMenuItem.Click += new System.EventHandler(this.CreateBackupToolStripMenuItem_Click);
-            // 
-            // importBackupToolStripMenuItem
-            // 
-            this.importBackupToolStripMenuItem.Name = "importBackupToolStripMenuItem";
-            this.importBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.importBackupToolStripMenuItem.Text = "Import Backup";
-            this.importBackupToolStripMenuItem.Click += new System.EventHandler(this.ImportBackupToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewOnGitHubcomToolStripMenuItem,
-            this.checkForUpdatesToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
-            // 
-            // viewOnGitHubcomToolStripMenuItem
-            // 
-            this.viewOnGitHubcomToolStripMenuItem.Name = "viewOnGitHubcomToolStripMenuItem";
-            this.viewOnGitHubcomToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.viewOnGitHubcomToolStripMenuItem.Text = "View on GitHub.com";
-            this.viewOnGitHubcomToolStripMenuItem.Click += new System.EventHandler(this.ViewOnGitHubcomToolStripMenuItem_Click);
-            // 
-            // checkForUpdatesToolStripMenuItem
-            // 
-            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.checkForUpdatesToolStripMenuItem.Text = "Check for updates...";
-            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.tsmiSettings.Name = "tsmiSettings";
+            this.tsmiSettings.Size = new System.Drawing.Size(180, 22);
+            this.tsmiSettings.Text = "Settings";
+            this.tsmiSettings.Click += new System.EventHandler(this.tsmiSettings_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
-            // openDetailsToolStripMenuItem
+            // tsmiExit
             // 
-            this.openDetailsToolStripMenuItem.Name = "openDetailsToolStripMenuItem";
-            this.openDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openDetailsToolStripMenuItem.Text = "Open Details";
+            this.tsmiExit.Name = "tsmiExit";
+            this.tsmiExit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiExit.Text = "Exit";
+            this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
-            // openVideoToolStripMenuItem
+            // backupsToolStripMenuItem
             // 
-            this.openVideoToolStripMenuItem.Name = "openVideoToolStripMenuItem";
-            this.openVideoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openVideoToolStripMenuItem.Text = "Open Video";
+            this.backupsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiCreateBackup,
+            this.tsmiImport,
+            this.tsmiExport,
+            this.toolStripSeparator2,
+            this.tsmiOpenDetails,
+            this.tsmiOpenVideo,
+            this.toolStripSeparator4,
+            this.tsmiRestoreBackup,
+            this.tsmiDeleteBackup});
+            this.backupsToolStripMenuItem.Name = "backupsToolStripMenuItem";
+            this.backupsToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.backupsToolStripMenuItem.Text = "Backups";
             // 
-            // restoreBackupToolStripMenuItem
+            // tsmiCreateBackup
             // 
-            this.restoreBackupToolStripMenuItem.Name = "restoreBackupToolStripMenuItem";
-            this.restoreBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.restoreBackupToolStripMenuItem.Text = "Restore Backup";
+            this.tsmiCreateBackup.Name = "tsmiCreateBackup";
+            this.tsmiCreateBackup.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCreateBackup.Text = "Create Backup";
+            this.tsmiCreateBackup.Click += new System.EventHandler(this.btnCreateBackup_Click);
             // 
-            // exportBackupToolStripMenuItem
+            // tsmiImport
             // 
-            this.exportBackupToolStripMenuItem.Name = "exportBackupToolStripMenuItem";
-            this.exportBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportBackupToolStripMenuItem.Text = "Export Backup";
+            this.tsmiImport.Name = "tsmiImport";
+            this.tsmiImport.Size = new System.Drawing.Size(180, 22);
+            this.tsmiImport.Text = "Import Backup";
+            this.tsmiImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // deleteBackupToolStripMenuItem
+            // tsmiExport
             // 
-            this.deleteBackupToolStripMenuItem.Name = "deleteBackupToolStripMenuItem";
-            this.deleteBackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteBackupToolStripMenuItem.Text = "Delete Backup";
+            this.tsmiExport.Enabled = false;
+            this.tsmiExport.Name = "tsmiExport";
+            this.tsmiExport.Size = new System.Drawing.Size(180, 22);
+            this.tsmiExport.Text = "Export Backup";
+            this.tsmiExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // tsmiOpenDetails
+            // 
+            this.tsmiOpenDetails.Enabled = false;
+            this.tsmiOpenDetails.Name = "tsmiOpenDetails";
+            this.tsmiOpenDetails.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOpenDetails.Text = "Open Details";
+            this.tsmiOpenDetails.Click += new System.EventHandler(this.btnOpenDetails_Click);
+            // 
+            // tsmiOpenVideo
+            // 
+            this.tsmiOpenVideo.Enabled = false;
+            this.tsmiOpenVideo.Name = "tsmiOpenVideo";
+            this.tsmiOpenVideo.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOpenVideo.Text = "Open Video";
+            this.tsmiOpenVideo.Click += new System.EventHandler(this.btnOpenVideo_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
+            // tsmiRestoreBackup
+            // 
+            this.tsmiRestoreBackup.Enabled = false;
+            this.tsmiRestoreBackup.Name = "tsmiRestoreBackup";
+            this.tsmiRestoreBackup.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRestoreBackup.Text = "Restore Backup";
+            this.tsmiRestoreBackup.Click += new System.EventHandler(this.btnRestoreBackup_Click);
+            // 
+            // tsmiDeleteBackup
+            // 
+            this.tsmiDeleteBackup.Enabled = false;
+            this.tsmiDeleteBackup.Name = "tsmiDeleteBackup";
+            this.tsmiDeleteBackup.Size = new System.Drawing.Size(180, 22);
+            this.tsmiDeleteBackup.Text = "Delete Backup";
+            this.tsmiDeleteBackup.Click += new System.EventHandler(this.btnDeleteBackup_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiGithubPage,
+            this.tsmiGithubIssue,
+            this.tsmiGithubUpdate,
+            this.toolStripSeparator1,
+            this.tsmiAbout});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // tsmiGithubPage
+            // 
+            this.tsmiGithubPage.Name = "tsmiGithubPage";
+            this.tsmiGithubPage.Size = new System.Drawing.Size(184, 22);
+            this.tsmiGithubPage.Text = "View on GitHub.com";
+            this.tsmiGithubPage.Click += new System.EventHandler(this.tsmiGithubPage_Click);
+            // 
+            // tsmiGithubIssue
+            // 
+            this.tsmiGithubIssue.Name = "tsmiGithubIssue";
+            this.tsmiGithubIssue.Size = new System.Drawing.Size(184, 22);
+            this.tsmiGithubIssue.Text = "Report a bug...";
+            this.tsmiGithubIssue.Click += new System.EventHandler(this.tsmiGithubIssue_Click);
+            // 
+            // tsmiGithubUpdate
+            // 
+            this.tsmiGithubUpdate.Name = "tsmiGithubUpdate";
+            this.tsmiGithubUpdate.Size = new System.Drawing.Size(184, 22);
+            this.tsmiGithubUpdate.Text = "Check for updates...";
+            this.tsmiGithubUpdate.Click += new System.EventHandler(this.tsmiGithubUpdate_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
+            // 
+            // tsmiAbout
+            // 
+            this.tsmiAbout.Name = "tsmiAbout";
+            this.tsmiAbout.Size = new System.Drawing.Size(184, 22);
+            this.tsmiAbout.Text = "About";
+            this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 536);
-            this.Controls.Add(this.btnImport);
+            this.ClientSize = new System.Drawing.Size(584, 507);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCreateBackup);
             this.Controls.Add(this.lsvBackups);
@@ -507,32 +484,30 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnOpenVideo;
         private System.Windows.Forms.ColumnHeader colVideo;
-        private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.OpenFileDialog ofdImport;
         private System.Windows.Forms.SaveFileDialog sfdExport;
         private System.Windows.Forms.RichTextBox tbxNotes;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backupsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createBackupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiSettings;
+        private System.Windows.Forms.ToolStripMenuItem tsmiExit;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCreateBackup;
+        private System.Windows.Forms.ToolStripMenuItem tsmiImport;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem viewOnGitHubcomToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGithubPage;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGithubUpdate;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openDetailsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openVideoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAbout;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOpenDetails;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOpenVideo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem restoreBackupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportBackupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRestoreBackup;
+        private System.Windows.Forms.ToolStripMenuItem tsmiExport;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDeleteBackup;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGithubIssue;
     }
 }
 
