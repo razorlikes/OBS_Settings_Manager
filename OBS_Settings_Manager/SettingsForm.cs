@@ -16,6 +16,7 @@ namespace OBS_Settings_Manager
     public partial class SettingsForm : Form
     {
         IniData iniData;
+        bool firstRun = false;
 
         public SettingsForm()
         {
@@ -40,15 +41,17 @@ namespace OBS_Settings_Manager
                 parser.WriteFile(Path.Combine(Environment.CurrentDirectory, "settings.ini"), iniData);
 
                 btnCancel.Enabled = false;
+                firstRun = true;
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tbxBackupFolder.Text != iniData["General"]["backupFolder"])
+            if (tbxBackupFolder.Text != iniData["General"]["backupFolder"] && !firstRun)
             {
-                MessageBox.Show("You changed the backup folder.\nDo you want to copy existing backups to the new folder?", "Settings", MessageBoxButtons.YesNo);
-                Helper.copyDir(tbxBackupFolder.Text, iniData["General"]["backupFolder"]);
+                DialogResult diagres = MessageBox.Show("You changed the backup folder.\nDo you want to copy existing backups to the new folder?", "Copy Folder", MessageBoxButtons.YesNo);
+                if (diagres == DialogResult.Yes)
+                    Helper.copyDir(iniData["General"]["backupFolder"], tbxBackupFolder.Text);
             }
 
             iniData["General"]["backupFolder"] = tbxBackupFolder.Text;
