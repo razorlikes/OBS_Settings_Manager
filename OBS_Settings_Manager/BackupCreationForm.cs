@@ -22,7 +22,7 @@ namespace OBS_Settings_Manager
         {
             if (tbxName.TextLength == 0)
             {
-                MessageBox.Show("Please enter a backup name!");
+                MessageBox.Show("Please enter a backup name!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

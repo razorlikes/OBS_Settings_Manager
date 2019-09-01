@@ -45,6 +45,12 @@ namespace OBS_Settings_Manager
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (tbxBackupFolder.Text != iniData["General"]["backupFolder"])
+            {
+                MessageBox.Show("You changed the backup folder.\nDo you want to copy existing backups to the new folder?", "Settings", MessageBoxButtons.YesNo);
+                Helper.copyDir(tbxBackupFolder.Text, iniData["General"]["backupFolder"]);
+            }
+
             iniData["General"]["backupFolder"] = tbxBackupFolder.Text;
 
             FileIniDataParser parser = new FileIniDataParser();

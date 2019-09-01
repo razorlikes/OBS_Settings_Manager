@@ -14,12 +14,12 @@ namespace OBS_Settings_Manager
         public static string selectedProfilePath, selectedProfileBackupPath, selectedBackupPath;
 
         string backupPath;
+        IniData iniData;
+        FileIniDataParser iniParser = new FileIniDataParser();
 
         public MainForm()
         {
             InitializeComponent();
-            
-            //backupPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "obs-studio", "SettingsManager", "backups");
 
             lsvBackups.ListViewItemSorter = new ListViewItemComparer();
         }
@@ -30,34 +30,15 @@ namespace OBS_Settings_Manager
 
             cmbProfiles.Items.Clear(); //clear items when settings were changed
 
-            if (File.Exists(Path.Combine(Environment.CurrentDirectory, "settings.ini")))
+            if (!File.Exists(Path.Combine(Environment.CurrentDirectory, "settings.ini")))
             {
-                FileIniDataParser parser = new FileIniDataParser();
-                IniData iniData = parser.ReadFile(Path.Combine(Environment.CurrentDirectory, "settings.ini"));
-
-                backupPath = iniData["General"]["backupFolder"];
-
-                if (!Directory.Exists(backupPath))
-                    Directory.CreateDirectory(backupPath);
-            }
-            else
-            {
-                DialogResult diagres = MessageBox.Show("Since this seems to be your first run of this program you will have to select a backup folder in the settings. \n" +
-                                                       "None of your initial config files will be altered during this process.\n" +
-                                                       "I am NOT responsible if any of your files become corrupt or go missing by using my program. This software is still a WIP project!\n" +
-                                                       "If you aren't fine with this please click the Cancel button below."
+                DialogResult diagres = MessageBox.Show("Since this seems to be your first run of this program you will have to select a backup folder in the settings. \n\n" +
+                                                       "I am NOT responsible if any of your files become corrupt or go missing by using my program. This software is still a WIP project!"
                                                        , "Welcome", MessageBoxButtons.OKCancel);
 
                 if (diagres == DialogResult.OK)
                 {
                     new SettingsForm().ShowDialog();
-
-                    FileIniDataParser parser = new FileIniDataParser();
-                    IniData iniData = parser.ReadFile(Path.Combine(Environment.CurrentDirectory, "settings.ini"));
-
-                    backupPath = iniData["General"]["backupFolder"];
-
-                    Directory.CreateDirectory(backupPath);
                 }
                 else
                 {
@@ -66,13 +47,17 @@ namespace OBS_Settings_Manager
                 }
             }
 
+            iniData = iniParser.ReadFile(Path.Combine(Environment.CurrentDirectory, "settings.ini"));
+            backupPath = iniData["General"]["backupFolder"];
+            Directory.CreateDirectory(backupPath);
+
             try
             {
                 profilePaths = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\obs-studio\\basic\\profiles");
             }
             catch (Exception exc)
             {
-                MessageBox.Show("OBS profile directory couldn't be opened!\n\nError: " + exc.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("OBS profile directory couldn't be opened! Make sure you have OBS Studio installed!\n\n" + exc.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
                 profilePaths = new string[0];  //workaround
             }
@@ -83,7 +68,7 @@ namespace OBS_Settings_Manager
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Backup directory couldn't be opened!\n\nError: " + exc.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Backup directory couldn't be opened!\n\n" + exc.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
                 backupProfilePaths = new string[0];  //workaround
             }
@@ -106,7 +91,7 @@ namespace OBS_Settings_Manager
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("You don't seem to have any profiles created in OBS.\nPlease create a profile in OBS and try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("You don't seem to have any profiles created in OBS.\nPlease create a profile in OBS and try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
 
@@ -140,27 +125,6 @@ namespace OBS_Settings_Manager
             }
 
             lsvBackups.Items.AddRange(lviList);
-        }
-
-        private void copyDir(string sourcePath, string destPath)
-        {
-            if (!Directory.Exists(destPath))
-            {
-                Directory.CreateDirectory(destPath);
-            }
-
-            DirectoryInfo dirInfo = new DirectoryInfo(sourcePath);
-            FileInfo[] files = dirInfo.GetFiles();
-            foreach (FileInfo file in files)
-            {
-                file.CopyTo(Path.Combine(destPath, file.Name), true);
-            }
-
-            DirectoryInfo[] directories = dirInfo.GetDirectories();
-            foreach (DirectoryInfo dir in directories)
-            {
-                copyDir(Path.Combine(sourcePath, dir.Name), Path.Combine(destPath, dir.Name));
-            }
         }
 
         private void cmbProfiles_SelectedIndexChanged(object sender, EventArgs e)
@@ -219,7 +183,7 @@ namespace OBS_Settings_Manager
                 }
                 catch (NullReferenceException)
                 {
-                    MessageBox.Show(this, "The selected file is not a backup or is corrupt.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(this, "The selected file is not a backup or is corrupt.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -229,7 +193,7 @@ namespace OBS_Settings_Manager
                 }
                 catch (IOException)
                 {
-                    DialogResult diagres = MessageBox.Show(this, "It seems that a backup with the same name already exists.\nOverwrite it?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult diagres = MessageBox.Show(this, "It seems that a backup with the same name already exists.\nOverwrite it?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
                     if (diagres == DialogResult.Yes)
                     {
@@ -317,7 +281,7 @@ namespace OBS_Settings_Manager
             DialogResult diagres = MessageBox.Show("Your current settings will be overwritten by the backup!\nYou have been warned.", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (diagres == DialogResult.OK)
             {
-                copyDir(Path.Combine(selectedBackupPath, "profileData"), selectedProfilePath);
+                Helper.copyDir(Path.Combine(selectedBackupPath, "profileData"), selectedProfilePath);
             }
         }
 

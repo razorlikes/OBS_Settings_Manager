@@ -118,6 +118,7 @@
             // 
             this.tbxVideoPath.Location = new System.Drawing.Point(76, 118);
             this.tbxVideoPath.Name = "tbxVideoPath";
+            this.tbxVideoPath.ReadOnly = true;
             this.tbxVideoPath.Size = new System.Drawing.Size(186, 20);
             this.tbxVideoPath.TabIndex = 11;
             // 

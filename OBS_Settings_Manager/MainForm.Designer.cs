@@ -231,7 +231,7 @@
             this.btnDeleteBackup.Location = new System.Drawing.Point(459, 98);
             this.btnDeleteBackup.Name = "btnDeleteBackup";
             this.btnDeleteBackup.Size = new System.Drawing.Size(95, 23);
-            this.btnDeleteBackup.TabIndex = 12;
+            this.btnDeleteBackup.TabIndex = 17;
             this.btnDeleteBackup.Text = "Delete Backup";
             this.btnDeleteBackup.UseVisualStyleBackColor = true;
             this.btnDeleteBackup.Click += new System.EventHandler(this.btnDeleteBackup_Click);

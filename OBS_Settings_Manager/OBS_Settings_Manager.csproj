@@ -93,6 +93,7 @@
     <Compile Include="BackupCreationForm.Designer.cs">
       <DependentUpon>BackupCreationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper.cs" />
     <Compile Include="ListViewItemComparer.cs" />
     <Compile Include="DetailForm.cs">
       <SubType>Form</SubType>
