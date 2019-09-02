@@ -50,7 +50,7 @@ namespace OBS_Settings_Manager
             if (tbxBackupFolder.Text != iniData["General"]["backupFolder"] && !firstRun)
             {
                 DialogResult diagres = MessageBox.Show("You changed the backup folder.\nDo you want to copy existing backups to the new folder?", "Copy Folder", MessageBoxButtons.YesNo);
-                if (diagres == DialogResult.Yes)
+                if (diagres == DialogResult.Yes && Directory.Exists(iniData["General"]["backupFolder"]))
                     Helper.copyDir(iniData["General"]["backupFolder"], tbxBackupFolder.Text);
             }
 

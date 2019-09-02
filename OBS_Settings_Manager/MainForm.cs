@@ -37,9 +37,7 @@ namespace OBS_Settings_Manager
                                                        , "Welcome", MessageBoxButtons.OKCancel);
 
                 if (diagres == DialogResult.OK)
-                {
                     new SettingsForm().ShowDialog();
-                }
                 else
                 {
                     Application.Exit();
