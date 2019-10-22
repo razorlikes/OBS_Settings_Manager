@@ -46,34 +46,13 @@ namespace OBS_Settings_Manager
                 Directory.CreateDirectory(backupDest);
                 if (meta.SaveData(backupDest))
                 {
-                    copyDir(MainForm.selectedProfilePath, Path.Combine(backupDest, "profileData"));
+                    Helper.copyDir(MainForm.selectedProfilePath, Path.Combine(backupDest, "profileData"));
                     MessageBox.Show("Profile successfully saved!", "Success", MessageBoxButtons.OK);
                     this.Close();
                 }
             }
             else
                 MessageBox.Show("A backup by this name already exists.\nPlease choose a different name or delete the existing backup!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
-
-        private void copyDir(string sourcePath, string destPath)
-        {
-            if (!Directory.Exists(destPath))
-            {
-                Directory.CreateDirectory(destPath);
-            }
-
-            DirectoryInfo dirInfo = new DirectoryInfo(sourcePath);
-            FileInfo[] files = dirInfo.GetFiles();
-            foreach (FileInfo file in files)
-            {
-                file.CopyTo(Path.Combine(destPath, file.Name));
-            }
-
-            DirectoryInfo[] directories = dirInfo.GetDirectories();
-            foreach (DirectoryInfo dir in directories)
-            {
-                copyDir(Path.Combine(sourcePath, dir.Name), Path.Combine(destPath, dir.Name));
-            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
